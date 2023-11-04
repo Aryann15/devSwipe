@@ -12,6 +12,7 @@ export default function Header() {
             <div className="icon"></div>
           </div>
           <div className="profile-icon">
+            ShowProfile
             <div className="icon">
               <ul className="submenu">
                 <li>
