@@ -37,6 +37,8 @@ const authenticateJwt = (req, res, next) => {
 
 USERS = [];
 POSTS = [];
+DETAILS = [];
+
 // Routes
 app.get("/", (req, res) => {
   res.send("Hello world");
@@ -73,6 +75,12 @@ app.post("/user/login", async (req, res) => {
   }
 });
 
+app.post('/user-details', (req, res) => {
+    details.push(req.body);   
+    res.send('Details saved!' , details);  
+  })
+
+
 app.post("/user/post", authenticateJwt, (req, res) => {
   const post = req.body;
   post.id = uuid.v4();
@@ -80,7 +88,6 @@ app.post("/user/post", authenticateJwt, (req, res) => {
   POSTS.push(post);
   res.json({ message: "Post created successfully", post });
 });
-
 
 
 app.put('/user/post/:id', authenticateJwt, (req, res) => {
