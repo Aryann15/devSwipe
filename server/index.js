@@ -5,7 +5,7 @@ const app = express();
 const port = 8000;
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-const uuid = require ('uuid');
+const uuid = require("uuid");
 const id = uuid.v4();
 
 app.use(cors());
@@ -56,7 +56,7 @@ app.post("/user/signup", async (req, res) => {
     const token = jwt.sign({ username, role: "user" }, secretKey, {
       expiresIn: "1h",
     });
-    res.json({ message: "User created successfully", token , userId });
+    res.json({ message: "User created successfully", token, userId });
   }
 });
 
@@ -75,40 +75,45 @@ app.post("/user/login", async (req, res) => {
   }
 });
 
-app.post('/user-details', (req, res) => {
-    details.push(req.body);   
-    res.send('Details saved!' , details);  
-  })
+app.post("/user-details", (req, res) => {
+  details.push(req.body);
+  res.send("Details saved!", details);
+});
 
+app.put("/user-details/:id", (req, res) => {
+    const details = DETAILS.find((c) => c.id === parseInt(req.params.id));
+    if (details) {
+        Object.assign(post, req.body);
+        res.json({ message: "Post updated successfully",details: details});
+      } else {
+        res.status(404).json({ message: "Post not found" });
+      }
+    });
 
 app.post("/user/post", authenticateJwt, (req, res) => {
   const post = req.body;
-  post.id = uuid.v4();
+  postId = uuid.v4();
+  post.id= postId
   post.userId = req.user.id;
   POSTS.push(post);
   res.json({ message: "Post created successfully", post });
 });
 
+app.put("/user/post/:id", authenticateJwt, (req, res) => {
+  const post = POSTS.find((c) => c.id === parseInt(req.params.postId));
+  if (post) {
+    Object.assign(post, req.body);
+    res.json({ message: "Post updated successfully" });
+  } else {
+    res.status(404).json({ message: "Post not found" });
+  }
+});
 
-app.put('/user/post/:id', authenticateJwt, (req, res) => {
-    const post = POSTS.find(c => c.id === parseInt(req.params.courseId));
-    if (post) {
-      Object.assign(post, req.body);
-      res.json({ message: 'Post updated successfully' });
-    } else {
-      res.status(404).json({ message: 'Post not found' });
-    }
-  });
-
-
-
-  app.get('/user/posts/:id', (req, res) => {
-    const userId = req.params.userId;
-    const userPosts = POSTS.filter(post => post.userId === userId);   
-    res.json({ posts: userPosts });
-  });
-
-
+app.get("/user/posts/:id", (req, res) => {
+  const userId = req.params.userId;
+  const userPosts = POSTS.filter((post) => post.userId === userId);
+  res.json({ posts: userPosts });
+});
 
 // Start the server
 app.listen(port, () => {
