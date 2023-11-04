@@ -16,6 +16,24 @@ mongoose.connect(process.env.mongodb_url, {
   useUnifiedTopology: true,
 });
 
+
+const authenticateJwt = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (authHeader) {
+      const token = authHeader;
+      jwt.verify(token, secretKey , (err, user) => {
+        if (err) {
+          return res.sendStatus(403);
+        }
+        req.user = user;
+        next();
+      });
+    } else {
+      res.sendStatus(401);
+    }
+  };
+
+
 USERS = [];
 // Routes
 app.get("/", (req, res) => {
@@ -51,6 +69,7 @@ app.post("/user/login", async (req, res) => {
     res.status(403).json({ message: "Invalid username or password" });
   }
 });
+
 
 // Start the server
 app.listen(port, () => {
