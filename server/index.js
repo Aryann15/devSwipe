@@ -41,6 +41,7 @@ app.get("/", (req, res) => {
 
 app.post("/user/signup", async (req, res) => {
   const { username, password } = req.body;
+  const userId = USERS.length + 1;
   const user = USERS.find((a) => a.username === username);
   if (user) {
     res.status(403).json({ message: "Users already exists" });
@@ -50,7 +51,7 @@ app.post("/user/signup", async (req, res) => {
     const token = jwt.sign({ username, role: "user" }, secretKey, {
       expiresIn: "1h",
     });
-    res.json({ message: "User created successfully", token });
+    res.json({ message: "User created successfully", token , userId });
   }
 });
 
@@ -70,12 +71,26 @@ app.post("/user/login", async (req, res) => {
 });
 
 app.post("/user/post", authenticateJwt, (req, res) => {
-  const post = req.body;
-  post.id = POSTS.length + 1;
+  const postData = req.body;
+  const userId = req.user.id;
+  const post = {
+    id:POSTS.length + 1,
+    userId:userId,
+    postData:postData
+  } 
   POSTS.push(post);
-  res.json({ message: "Post created successfully", postId: post.id });
+  res.json({ message: "Post created successfully", pos });
 });
 
+app.put('/user/post/:postId', authenticateJwt, (req, res) => {
+    const post = POSTS.find(c => c.id === parseInt(req.params.courseId));
+    if (post) {
+      Object.assign(post, req.body);
+      res.json({ message: 'Post updated successfully' });
+    } else {
+      res.status(404).json({ message: 'Post not found' });
+    }
+  });
 
 
 // Start the server
