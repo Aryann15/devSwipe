@@ -43,14 +43,14 @@ app.post("/user/signup", async (req, res) => {
   const { username, password } = req.body;
   const user = USERS.find((a) => a.username === username);
   if (user) {
-    res.status(403).json({ message: "Admin already exists" });
+    res.status(403).json({ message: "Users already exists" });
   } else {
     const newUser = { username, password };
     USERS.push(newUser);
     const token = jwt.sign({ username, role: "user" }, secretKey, {
       expiresIn: "1h",
     });
-    res.json({ message: "Admin created successfully", token });
+    res.json({ message: "User created successfully", token });
   }
 });
 
