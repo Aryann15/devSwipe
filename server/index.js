@@ -19,6 +19,25 @@ mongoose.connect(process.env.mongodb_url, {
   useUnifiedTopology: true,
 });
 
+//mongoose schemas 
+const userSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    region: String,
+    tech_field: String,
+    programming_languages : [String],
+    availibilty : String,
+    goals: String,
+    experience: Number,
+    imageLink:String
+})
+
+
+
+
+
+
+
 const authenticateJwt = (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (authHeader) {
