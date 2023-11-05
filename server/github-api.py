@@ -7,6 +7,10 @@ from flask_cors import CORS
 import json
 from dotenv import load_dotenv
 import os
+from langchain import OpenAI
+from langchain.chains.summarize import load_summarize_chain
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain import PromptTemplate
 
 app = Flask(__name__)
 CORS(app)
@@ -94,8 +98,34 @@ if username :
         return user_data_string
 
 
+    def summarized_rev(user_data_string):
+        text_splitter = RecursiveCharacterTextSplitter(separators=[" "], chunk_size=6000, chunk_overlap=500)
+        docs = text_splitter.create_documents([user_data_string])
+        llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
+        if docs:
+            summary_chain = load_summarize_chain(llm=llm, chain_type='map_reduce',
+                                      verbose=True)
 
-# data = github_data(username)
+            combine_prompt = """
+            You are world class develeoper Reviewer. Look at the github profile and extract all the important details about him 
+            USE BULLET POINTS FOR EACH INFORMATION
+            ALSO RATE THE INDIVIDUAL WITH A SMALL SUMMARY AT LAST
+
+            {text}
+            """
+
+            combine_prompt_template = PromptTemplate(template=combine_prompt, input_variables=["text"])
+            summary_chain = load_summarize_chain(llm=llm,
+                                     chain_type='map_reduce',
+                                     combine_prompt=combine_prompt_template,
+                                    verbose=True
+                                    )
+
+            output = summary_chain.run(docs)
+
+            with open(f"{username}_github_review.txt", "w") as text_file:
+                text_file.write(output)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
