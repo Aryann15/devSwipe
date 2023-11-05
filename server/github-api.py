@@ -72,8 +72,6 @@ def github_data(username):
         print(f"Failed to fetch README.md. Status code: {readme_response.status_code}")
 
     user_data_string = user_profile + user_repositories + user_organizations + user_readme
-
-
     return user_data_string
 
 
