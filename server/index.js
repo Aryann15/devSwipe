@@ -148,14 +148,15 @@ app.post("/user-details", authenticateJwt, (req, res) => {
     res.json({ message: "Profile created successfully", details: details });
   });
 
-app.post("/user/post", authenticateJwt, (req, res) => {
-  const post = req.body;
-  postId = uuid.v4();
-  post.id = postId;
-  post.userId = req.user.id;
-  POSTS.push(post);
-  res.json({ message: "Post created successfully", post });
-});
+  
+  app.post("/user/post", authenticateJwt, (req, res) => {
+    const post = req.body;
+    post.userId = req.user.id;
+    const userPost = new Post(post);
+    userPost.save();
+    res.json({ message: "Post created successfully", post: userPost });
+  });
+  
 
 app.put("/user/post/:id", authenticateJwt, (req, res) => {
   const post = POSTS.find((c) => c.id === parseInt(req.params.postId));
