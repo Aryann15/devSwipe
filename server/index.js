@@ -124,13 +124,11 @@ app.post("/user/signup", async (req, res) => {
       res.json({ message: "User created successfully", token, userId: newUser._id });
     }
   });
-  
+
 
 app.post("/user/login", async (req, res) => {
   const { username, password } = req.body;
-  const user = USERS.find(
-    (a) => a.username === username && a.password === password
-  );
+  const user = await User.findOne({ username, password });
   if (user) {
     const token = jwt.sign({ username, role: "user" }, secretKey, {
       expiresIn: "1h",
@@ -140,6 +138,7 @@ app.post("/user/login", async (req, res) => {
     res.status(403).json({ message: "Invalid username or password" });
   }
 });
+
 
 app.post("/user-details", authenticateJwt, (req, res) => {
   const details = req.body;
