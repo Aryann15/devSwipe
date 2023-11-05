@@ -48,3 +48,11 @@ if org_response.status_code == 200:
         print(f"Organization Name: {org['login']}")
 else:
     print(f"Failed to fetch organizations. Status code: {org_response.status_code}")
+
+
+readme_api_url = f'https://api.github.com/repos/{username}/readme'
+
+readme_response = requests.get(readme_api_url)
+
+if readme_response.status_code == 200:
+    readme_data = readme_response.json()
