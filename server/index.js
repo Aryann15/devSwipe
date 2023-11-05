@@ -31,23 +31,31 @@ const userSchema = new mongoose.Schema({
   },
   region: {
     type: String,
+    required: true,
   },
   tech_field: {
     type: String,
+    required: true,
   },
   programming_languages: {
-    type: [String], 
+    type: [String],
+    required: true,}, 
+
   availability: {
     type: String,
+    required: true,
   },
   goals: {
-    type: [String], 
+    type: [String],
+    required: true, 
   },
   experience: {
     type: Number,
+    required: true,
   },
   imageLink: {
     type: String,
+    required: true,
   },
 });
 
@@ -125,7 +133,6 @@ app.post("/user/signup", async (req, res) => {
     }
   });
 
-
 app.post("/user/login", async (req, res) => {
   const { username, password } = req.body;
   const user = await User.findOne({ username, password });
@@ -139,24 +146,40 @@ app.post("/user/login", async (req, res) => {
   }
 });
 
+app.post("/user-details", authenticateJwt, async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id);
+      const updates = Object.keys(req.body);
+      updates.forEach(update => {
+        user[update] = req.body[update];   
+      });
+      await user.save();
+      res.status(200).json({
+        success: true,
+        message: "User updated successfully!"
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(400).json({
+        success: false,
+        error: err     
+      });
+    }
+  })
 
-app.post("/user-details", authenticateJwt, (req, res) => {
-    const details = req.body;
-    details.userId = req.user.id;
-    const userPost = new Post(details);
-    userPost.save();
-    res.json({ message: "Profile created successfully", details: details });
-  });
 
-
-  app.post("/user/post", authenticateJwt, (req, res) => {
+  app.post("/user/post", authenticateJwt, async (req, res) => {
     const post = req.body;
     post.userId = req.user.id;
-    const userPost = new Post(post);
-    userPost.save();
-    res.json({ message: "Post created successfully", post: userPost });
-  });
-  
+    try {
+        const userPost = new Post(post);
+        await userPost.save(); 
+        res.json({ message: "Post created successfully", post: userPost });
+      } catch (error) {
+        console.error("Error creating post:", error);
+        res.status(500).json({ error: "Failed to create the post" });
+      }
+    });
 
 app.put("/user/post/:id", authenticateJwt, async (req, res) => {
   const postId = req.params.id;
