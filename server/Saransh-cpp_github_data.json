@@ -1,0 +1,148 @@
+{
+  "user_profile": {
+    "name": "Saransh Chopra",
+    "bio": "Undergrad who likes open-source scientific software",
+    "followers": 172,
+    "following": 107
+  },
+  "user_repositories": [
+    {
+      "name": "Python",
+      "description": "All Algorithms implemented in Python",
+      "fork": true
+    },
+    {
+      "name": "astropy",
+      "description": "Astronomy and astrophysics core library",
+      "fork": true
+    },
+    {
+      "name": "agda-python",
+      "description": "A project that packages Agda as a Python package.",
+      "fork": true
+    },
+    {
+      "name": "rmstar",
+      "description": "Archived. For latest developments, see removestar - https://github.com/asmeurer/removestar.",
+      "fork": false
+    },
+    {
+      "name": "Papers",
+      "description": "Papers, theses, and presentations that I like (might have read, might be on the reading list)",
+      "fork": false
+    },
+    {
+      "name": "scicookie",
+      "description": "Cookiecutter template for a Python package.",
+      "fork": true
+    },
+    {
+      "name": "Idris2",
+      "description": "A purely functional programming language with first class types",
+      "fork": true
+    },
+    {
+      "name": "IdrisButNotAgda",
+      "description": null,
+      "fork": false
+    },
+    {
+      "name": "dot-analysis",
+      "description": "Analysing dependency graphs produced by Agda",
+      "fork": true
+    },
+    {
+      "name": "agda",
+      "description": "Agda is a dependently typed programming language / interactive theorem prover.",
+      "fork": true
+    },
+    {
+      "name": "setuptools_scm",
+      "description": "the blessed package to manage your versions by scm tags",
+      "fork": true
+    },
+    {
+      "name": "hsf-training-cicd",
+      "description": "Continuuous integration and deployment. View webpage here: https://hsf-training.github.io/hsf-training-cicd/",
+      "fork": true
+    },
+    {
+      "name": "hsf-training-cicd-github",
+      "description": "An introduction to continuous integration (CI) and continuous deployment (CD) using GitHub Actions",
+      "fork": true
+    },
+    {
+      "name": "benchexec",
+      "description": "BenchExec: A Framework for Reliable Benchmarking and Resource Measurement",
+      "fork": true
+    },
+    {
+      "name": "agda-stdlib",
+      "description": "The Agda standard library",
+      "fork": true
+    },
+    {
+      "name": "gsoc",
+      "description": "NumFOCUS Google Summer of Code Materials",
+      "fork": true
+    },
+    {
+      "name": "javamop",
+      "description": "Runtime verification system for Java, using AspectJ for instrumentation.",
+      "fork": true
+    },
+    {
+      "name": "pip",
+      "description": "The Python package installer",
+      "fork": true
+    },
+    {
+      "name": "casadi",
+      "description": "CasADi is a symbolic framework for numeric optimization implementing automatic differentiation in forward and reverse modes on sparse matrix-valued computational graphs. It supports self-contained C-code generation and interfaces state-of-the-art codes such as SUNDIALS, IPOPT etc. It can be used from C++, Python or Matlab/Octave.",
+      "fork": true
+    },
+    {
+      "name": "numcodecs",
+      "description": "A Python package providing buffer compression and transformation codecs for use in data storage and communication applications.",
+      "fork": true
+    },
+    {
+      "name": "codespell",
+      "description": "check code for common misspellings",
+      "fork": true
+    },
+    {
+      "name": "www.julialang.org",
+      "description": "Julia Project website",
+      "fork": true
+    },
+    {
+      "name": "CompGraphicsInJulia",
+      "description": "Computer Graphics assignments in Julia (because why not)",
+      "fork": false
+    },
+    {
+      "name": "fluxml-franklin-port",
+      "description": null,
+      "fork": false
+    },
+    {
+      "name": "Franklin.jl",
+      "description": "(yet another) static site generator. Simple, customisable, fast, maths with KaTeX, code evaluation, optional pre-rendering, in Julia.",
+      "fork": true
+    }
+  ],
+  "user_organizations": [
+    "astropy",
+    "numfocus",
+    "fossasia",
+    "conda-forge",
+    "clusterinnovationcentre",
+    "FluxML",
+    "pybamm-team",
+    "AI-View",
+    "osl-incubator",
+    "Google-Summer-of-Code-Archive"
+  ],
+  "user_readme": "You are probably looking for [my website](https://Saransh-cpp.github.io), specifically, the [open-source page](https://saransh-cpp.github.io/opensource/).\n\nI am broadly interested in **Research Software Engineering**, **Scientific Computing**, **Scientific Machine Learning**, **Computer Vision**, **Theory of Computation**, **Formal Verification** (**Type Theory**, **Proof Theory**), **Functional Programming** and **DevOps**. I am extremely passionate about **Open-Source** and **Open-Science**. I am also developing some taste for **pure Software Engineering research** (runtime verification, new testing methods, etc.).\n\n## Open-Source Software\n\nBetter [here](https://saransh-cpp.github.io/opensource/).\n\n### Main software\n\nThe software I am (or I was once) involved with as a maintainer, core developer, core contributor, or was funded to work on.\n\n[pybamm-team/PyBaMM](https://github.com/pybamm-team/PyBaMM) | [scikit-hep/vector](https://github.com/scikit-hep/vector) | [conda-forge/vector-feedstock](https://github.com/conda-forge/vector-feedstock) | [FluxML/Flux.jl](https://github.com/FluxML/Flux.jl) | [agda/agda-stdlib](https://github.com/agda/agda-stdlib) | [pybamm-team/liionpack](https://github.com/pybamm-team/liionpack) | [pybamm-team/BattBot](https://github.com/pybamm-team/BattBot) | [smaranjitghose/DocLense](https://github.com/smaranjitghose/DocLense) | [asmeurer/removestar](https://github.com/asmeurer/removestar) | [conda-forge/removestar-feedstock](https://github.com/conda-forge/removestar-feedstock)\n\n### Significant contributions\n\nSignificant voluntary contributions or spin-off projects (was not directly funded to work on them but my work expanded and encompassed them).\n\n[FluxML ecosystem](https://github.com/FluxML/) | [Scikit-HEP ecosystem](https://github.com/scikit-hep/) | [luluxvi/DeepXDE](https://github.com/lululxvi/deepxde) | [zarr-developers/zarr-python](https://github.com/zarr-developers/zarr-python) | [scientific-python/cookie](https://github.com/scientific-python/cookie)\n\n### Small but nice contributions\n\nSmall contributions (not a spam spelling fix in README) that I did spend some time on.\n\n[sosy-lab/benchexec](https://github.com/sosy-lab/benchexec) | [colour-science/colour](https://github.com/colour-science/colour) | [bmcage/odes](https://github.com/bmcage/odes) | [idris-lang/Idris2](https://github.com/idris-lang/Idris2) | [numpy/numpy](https://github.com/numpy/numpy) | [astropy/astropy](https://github.com/astropy/astropy)\n\n<!-- ### Projects\n\nSome personal projects that I couldn't pin.\n\n[OCRed](https://github.com/Saransh-cpp/OCRed) | [ChaoticEncryption.jl](https://github.com/Saransh-cpp/ChaoticEncryption.jl) | [releaseup](https://github.com/Saransh-cpp/releaseup) | [rmstar](https://github.com/Saransh-cpp/rmstar) | [MemeTastic](https://github.com/Saransh-cpp/MemeTastic) | [PopItUp](https://github.com/Saransh-cpp/PopItUp) | [BookRentApp-Chapter3](https://github.com/Saransh-cpp/BookRentApp-Chapter3) | [SceneNet](https://github.com/Saransh-cpp/SceneNet) | [ForMente](https://github.com/Saransh-cpp/ForMente) | [riemapp](https://github.com/Saransh-cpp/riemapp)\n-->\n---\n\n<!-- <div align=\"center\">\n\n[![Website](https://img.shields.io/badge/saransh--cpp.github.io-blue?logo=github&logoColor=white&style=flat-square&color=purple)](https://Saransh-cpp.github.io)\n\n</div> -->\n \n<!-- [![Blogs](https://img.shields.io/badge/blogs-blue?logo=github&logoColor=white&style=flat-square&color=black)](https://Saransh-cpp.github.io)\n[![Linkedin: Saransh Chopra](https://img.shields.io/badge/-Saransh%20Chopra-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/saransh-cpp/)](https://www.linkedin.com/in/saransh-cpp/)\n[![Twitter: Saransh Chopra](https://img.shields.io/twitter/follow/saranshchopra7?style=social)](https://twitter.com/saranshchopra7) -->\n<!-- [<img src=\"https://komarev.com/ghpvc/?username=Saransh-cpp\" alt=\"Saransh-cpp\" />](https://github.com/Saransh-cpp) -->\n<!-- [![Medium Badge](https://img.shields.io/badge/-@White%20Violin-black?style=flat-square&labelColor=000000&logo=Medium&link=https://medium.com/@WhiteViolin)](https://medium.com/@WhiteViolin) -->\n\n<!-- </div> -->\n \n<!-- [![GitHub Saransh-cpp](https://img.shields.io/github/followers/Saransh-cpp?label=follow&style=social)](https://github.com/Saransh-cpp) -->\n\n<!-- - \ud83d\udef0\ufe0f I was a Technical Writer at [FluxML](https://fluxml.ai/) under [Julia Season of Contributions](https://julialang.org/jsoc/)!\n\n- \ud83d\udef0\ufe0f I was an [IRIS-HEP (Institute for Research and Innovation in Software for High Energy Physics)](https://iris-hep.org/) [fellow](https://iris-hep.org/fellows.html), and my work revolved around [Scikit-HEP/vector](https://github.com/scikit-hep/vector)!\n\n- :battery: I was a [Google Summer of Code 2021](https://summerofcode.withgoogle.com/projects/#5045812318437376) student at [PyBaMM](https://github.com/pybamm-team), [NumFOCUS](https://github.com/numfocus).\n\n- :octocat: I primarily contribute to the [PyBaMM ecosystem](https://github.com/pybamm-team/), [Scikit-HEP/vector](https://github.com/scikit-hep/vector) (and [some surronding packages](https://github.com/scikit-hep)), [FluxML](https://github.com/FluxML/Flux.jl) (and [some surronding packages](https://github.com/FluxML)), and random open-source research software. -->\n\n<!-- - :octocat: I try my best to contribute to the [PyBaMM ecosystem](https://github.com/pybamm-team/) regularly. -->\n\n<!-- - \ud83d\udd2d I\u2019m currently working on [ChaoticEncryption.jl](https://github.com/Saransh-cpp/ChaoticEncryption.jl) and [OCRed](https://github.com/Saransh-cpp/OCRed). -->\n\n<!-- - \ud83c\udf31 I\u2019m currently looking for research internships/fellowships. -->\n\n<!-- - \ud83d\udceb Find my tech articles and GSoC 2021 blogs [here](https://whiteviolin.medium.com/). -->\n\n<!-- - #### <p align=\"left\"> [<img src=\"https://komarev.com/ghpvc/?username=Saransh-cpp\" alt=\"Saransh-cpp\" />](https://github.com/Saransh-cpp)</p> -->\n\n<p align=\"center\"><img src=\"https://github-readme-stats.vercel.app/api?username=Saransh-cpp&count_private=true&show_icons=true&include_all_commits=true&theme=gruvbox&bg_color=333333&show=reviews,discussions_answered\"/></p>\n\n<!-- ## Recent activity -->\n<!-- 1. \ud83d\udde3 Commented on [#207](https://github.com/agda/agda-stdlib/issues/207) in [agda/agda-stdlib](https://github.com/agda/agda-stdlib)\n2. \ud83d\udde3 Commented on [#3035](https://github.com/pybamm-team/PyBaMM/issues/3035) in [pybamm-team/PyBaMM](https://github.com/pybamm-team/PyBaMM)\n3. \ud83d\udde3 Commented on [#3035](https://github.com/pybamm-team/PyBaMM/issues/3035) in [pybamm-team/PyBaMM](https://github.com/pybamm-team/PyBaMM)\n4. \ud83d\udde3 Commented on [#207](https://github.com/agda/agda-stdlib/issues/207) in [agda/agda-stdlib](https://github.com/agda/agda-stdlib)\n5. \u2757 Opened issue [#1980](https://github.com/agda/agda-stdlib/issues/1980) in [agda/agda-stdlib](https://github.com/agda/agda-stdlib) -->\n\n\n<!-- ## Some personal projects that I couldn't pin\n\n<table>\n    <tr>\n        <td>\n            <a href=\"https://github.com/Saransh-cpp/PDEsWithPINNs\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=PDEsWithPINNs&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n        <td>\n            <a href=\"https://github.com/Saransh-cpp/ChaoticEncryption.jl\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=ChaoticEncryption.jl&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n    </tr>\n    <tr>\n        <td>\n            <a href=\"https://github.com/Saransh-cpp/OCRed\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=OCRed&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n        <td>\n           <a href=\"https://github.com/Saransh-cpp/ForMente\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=ForMente&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n    </tr>\n    <tr>\n        <td>\n            <a href=\"https://github.com/Saransh-cpp/PopItUp\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=PopItUp&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n        <td>\n           <a href=\"https://github.com/Saransh-cpp/releaseup\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=releaseup&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n    </tr>\n    <tr>\n        <td>\n            <a href=\"https://github.com/Saransh-cpp/MemeTastic\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=MemeTastic&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n     <td>\n            <a href=\"https://github.com/Saransh-cpp/SceneNet\"><img align=\"center\" src=\"https://github-readme-stats.vercel.app/api/pin/?username=Saransh-cpp&repo=SceneNet&theme=gruvbox&bg_color=333333\" /></a>\n        </td>\n    </tr>\n</table>\n-->\n"
+}

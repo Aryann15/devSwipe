@@ -77,19 +77,14 @@ app.post("/user/login", async (req, res) => {
 
 app.post("/user-details",authenticateJwt, (req, res) => {
   const details = req.body;
+  details.id = req.user.id;
   DETAILS.push(details);
-  res.json({ message: "Profile created successfully",details: details , userId:req.user.userId});
+  console.log(id)
+  res.json({ message: "Profile created successfully",details: details});
 });
 
-app.put("/user-details/:id", (req, res) => {
-    const details = DETAILS.find((c) => c.id === parseInt(req.params.id));
-    if (details) {
-        Object.assign(post, req.body);
-        res.json({ message: "Profile updated successfully",details: details});
-      } else {
-        res.status(404).json({ message: "Post not found" });
-      }
-    });
+
+
 
 app.post("/user/post", authenticateJwt, (req, res) => {
   const post = req.body;
