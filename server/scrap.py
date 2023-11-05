@@ -1,5 +1,6 @@
 import requests
 import base64
+import json
 
 username = "Saransh-cpp"
 
@@ -67,3 +68,8 @@ user_data_dict = {
     "user_organizations": user_organizations,
     "user_readme": readme_content
 }
+
+with open(f"{username}_github_data.json", "w") as json_file:
+    json.dump(user_data_dict, json_file, indent=4)
+
+print(f"User data has been saved to {username}_github_data.json.")
