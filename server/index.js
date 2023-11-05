@@ -78,7 +78,7 @@ app.post("/user/login", async (req, res) => {
 app.post("/user-details",authenticateJwt, (req, res) => {
   const details = req.body;
   DETAILS.push(details);
-  res.json({ message: "Profile created successfully",details: details , userId});
+  res.json({ message: "Profile created successfully",details: details , userId:req.user.userId});
 });
 
 app.put("/user-details/:id", (req, res) => {
