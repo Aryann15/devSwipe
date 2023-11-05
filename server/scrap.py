@@ -15,3 +15,27 @@ if response.status_code == 200:
     print(f"Following: {user_data['following']}")
 else:
     print("Failed to fetch")
+
+
+
+
+repo_api_url = f'https://api.github.com/users/{username}/repos'
+
+params = {
+    'sort': 'created',
+    'direction': 'desc'
+}
+repo_response = requests.get(repo_api_url, params=params)
+
+if repo_response.status_code == 200:
+    repos = repo_response.json()[:25]  # Get the first 25 repositories
+    for repo in repos:
+        repo_name = repo['name']
+        repo_description = repo['description']
+        repo_fork = repo['fork']
+        print(f"Repository Name: {repo_name}")
+        print(f"Description: {repo_description}")
+        print(f"Fork: {repo_fork}")
+else:
+    print(f"Failed to fetch repositories. Status code: {repo_response.status_code}")
+
