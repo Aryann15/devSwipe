@@ -21,19 +21,57 @@ mongoose.connect(process.env.mongodb_url, {
 
 //mongoose schemas 
 const userSchema = new mongoose.Schema({
-    username: String,
-    password: String,
-    region: String,
-    tech_field: String,
-    programming_languages : [String],
-    availibilty : String,
-    goals: String,
-    experience: Number,
-    imageLink:String
-})
+    username: {
+        type: String,
+        required: true,
+      },
+      password: {
+        type: String,
+        required: true,
+      },
+      region: {
+        type: String,
+      },
+      tech_field: {
+        type: String,
+      },
+      programming_languages: {
+        type: [String], // Use an array of strings for programming languages
+      },
+      availability: {
+        type: String,
+      },
+      goals: {
+        type: [String], // Use an array of strings for goals
+      },
+      experience: {
+        type: Number,
+      },
+      imageLink: {
+        type: String,
+      },
+    });
 
 
-
+const postSchema = new mongoose.Schema({
+    userId: {
+        type: String,
+        required: true,
+      },
+      desc: {
+        type: String,
+        maxlength: 500,
+      },
+      img: {
+        type: String,
+      },
+      likes: {
+        type: Array,
+        default: [],
+      },
+    },
+    { timestamps: true }
+)
 
 
 
