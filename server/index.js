@@ -19,60 +19,70 @@ mongoose.connect(process.env.mongodb_url, {
   useUnifiedTopology: true,
 });
 
-//mongoose schemas 
+//mongoose schemas
 const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true,
-      },
-      password: {
-        type: String,
-        required: true,
-      },
-      region: {
-        type: String,
-      },
-      tech_field: {
-        type: String,
-      },
-      programming_languages: {
-        type: [String], // Use an array of strings for programming languages
-      },
-      availability: {
-        type: String,
-      },
-      goals: {
-        type: [String], // Use an array of strings for goals
-      },
-      experience: {
-        type: Number,
-      },
-      imageLink: {
-        type: String,
-      },
-    });
+  username: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  region: {
+    type: String,
+  },
+  tech_field: {
+    type: String,
+  },
+  programming_languages: {
+    type: [String], 
+  availability: {
+    type: String,
+  },
+  goals: {
+    type: [String], 
+  },
+  experience: {
+    type: Number,
+  },
+  imageLink: {
+    type: String,
+  },
+});
 
 
-const postSchema = new mongoose.Schema({
+const generateJwt = (user) => {
+    const payload = { username: user.username };
+    return jwt.sign(payload, secretKey, { expiresIn: "1h" });
+  };
+  
+
+const postSchema = new mongoose.Schema(
+  {
     userId: {
-        type: String,
-        required: true,
-      },
-      desc: {
-        type: String,
-        maxlength: 500,
-      },
-      img: {
-        type: String,
-      },
-      likes: {
-        type: Array,
-        default: [],
-      },
+      type: String,
+      required: true,
     },
-    { timestamps: true }
-)
+    desc: {
+      type: String,
+      maxlength: 500,
+    },
+    img: {
+      type: String,
+    },
+    likes: {
+      type: Array,
+      default: [],
+    },
+  },
+  { timestamps: true }
+);
 
+
+
+const Post = mongoose.model("Post", postSchema);
+const User = mongoose.model("User", userSchema);
 
 
 
@@ -92,30 +102,29 @@ const authenticateJwt = (req, res, next) => {
   }
 };
 
-USERS = [];
-POSTS = [];
-DETAILS = [];
+// USERS = [];
+// POSTS = [];
+// DETAILS = [];
 
 // Routes
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
-
 app.post("/user/signup", async (req, res) => {
-  const { username, password } = req.body;
-  const userId = USERS.length + 1;
-  const user = USERS.find((a) => a.username === username);
-  if (user) {
-    res.status(403).json({ message: "Users already exists" });
-  } else {
-    const newUser = { username, password };
-    USERS.push(newUser);
-    const token = jwt.sign({ username, role: "user" }, secretKey, {
-      expiresIn: "1h",
-    });
-    res.json({ message: "User created successfully", token, userId });
-  }
-});
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    if (user) {
+      res.status(403).json({ message: "User already exists" });
+    } else {
+      const newUser = new User({ username, password });
+      await newUser.save();
+      const token = jwt.sign({ username, role: "user" }, secretKey, {
+        expiresIn: "1h",
+      });
+      res.json({ message: "User created successfully", token, userId: newUser._id });
+    }
+  });
+  
 
 app.post("/user/login", async (req, res) => {
   const { username, password } = req.body;
@@ -132,21 +141,18 @@ app.post("/user/login", async (req, res) => {
   }
 });
 
-app.post("/user-details",authenticateJwt, (req, res) => {
+app.post("/user-details", authenticateJwt, (req, res) => {
   const details = req.body;
   details.id = req.user.id;
   DETAILS.push(details);
-  console.log(id)
-  res.json({ message: "Profile created successfully",details: details});
+  console.log(id);
+  res.json({ message: "Profile created successfully", details: details });
 });
-
-
-
 
 app.post("/user/post", authenticateJwt, (req, res) => {
   const post = req.body;
   postId = uuid.v4();
-  post.id= postId
+  post.id = postId;
   post.userId = req.user.id;
   POSTS.push(post);
   res.json({ message: "Post created successfully", post });
