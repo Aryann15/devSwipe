@@ -171,11 +171,11 @@ app.put("/user/post/:id", authenticateJwt, async (req, res) => {
   }
 });
 
-app.get("/user/posts/:id", (req, res) => {
-  const userId = req.params.userId;
-  const userPosts = POSTS.filter((post) => post.userId === userId);
-  res.json({ posts: userPosts });
-});
+app.get("/user/posts/:id", async (req, res) => {
+    const userId = req.params.id;
+    const userPosts = await Post.find({ userId });
+    res.json({ posts: userPosts });
+  });
 
 // Start the server
 app.listen(port, () => {
