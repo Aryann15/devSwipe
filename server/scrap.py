@@ -42,10 +42,11 @@ else:
 org_api_url = f"https://api.github.com/users/{username}/orgs"
 org_response = requests.get(org_api_url)
 
+user_organizations = []
 if org_response.status_code == 200:
     orgs_data = org_response.json()
     for org in orgs_data:
-        print(f"Organization Name: {org['login']}")
+        user_organizations.append(org['login'])
 else:
     print(f"Failed to fetch organizations. Status code: {org_response.status_code}")
 
