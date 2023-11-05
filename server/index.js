@@ -141,12 +141,12 @@ app.post("/user/login", async (req, res) => {
 
 
 app.post("/user-details", authenticateJwt, (req, res) => {
-  const details = req.body;
-  details.id = req.user.id;
-  DETAILS.push(details);
-  console.log(id);
-  res.json({ message: "Profile created successfully", details: details });
-});
+    const details = req.body;
+    details.userId = req.user.id;
+    const userPost = new Post(details);
+    userPost.save();
+    res.json({ message: "Profile created successfully", details: details });
+  });
 
 app.post("/user/post", authenticateJwt, (req, res) => {
   const post = req.body;
