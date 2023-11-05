@@ -148,7 +148,7 @@ app.post("/user-details", authenticateJwt, (req, res) => {
     res.json({ message: "Profile created successfully", details: details });
   });
 
-  
+
   app.post("/user/post", authenticateJwt, (req, res) => {
     const post = req.body;
     post.userId = req.user.id;
@@ -158,13 +158,16 @@ app.post("/user-details", authenticateJwt, (req, res) => {
   });
   
 
-app.put("/user/post/:id", authenticateJwt, (req, res) => {
-  const post = POSTS.find((c) => c.id === parseInt(req.params.postId));
+app.put("/user/post/:id", authenticateJwt, async (req, res) => {
+  const postId = req.params.id;
+  const post = await Post.findOne({ _id: postId, userId: req.user.id });
   if (post) {
-    Object.assign(post, req.body);
+    post.title = req.body.title;
+    post.content = req.body.content;
+    await post.save();
     res.json({ message: "Post updated successfully" });
   } else {
-    res.status(404).json({ message: "Post not found" });
+    res.status(404).json({ message: "Post not found or unauthorized" });
   }
 });
 
