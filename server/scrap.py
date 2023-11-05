@@ -11,5 +11,7 @@ if response.status_code == 200:
     print(f"User Profile for {username}:")
     print(f"Name: {user_data['name']}")
     print(f"Bio: {user_data['bio']}")
+    print(f"Followers: {user_data['followers']}")
+    print(f"Following: {user_data['following']}")
 else:
     print("Failed to fetch")
