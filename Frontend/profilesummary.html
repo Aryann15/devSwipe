@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="profilesummary.css" />
     <link rel="stylesheet" href="utillities.css" />
     <link
       rel="stylesheet"
@@ -14,7 +14,7 @@
   <body>
     <div class="navbar">
       <div class="logo">
-        <h1><a href="">DevConnect</a></h1>
+      <a href="">DevConnect</a>
       </div>
       <div class="search-bar">
         <input placeholder="Search Here" type="text" />
@@ -50,29 +50,37 @@
       </div>
 
       <div class="content">
-        <form action="action_page.php" method="post">
-  <div class="form-container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+        <h1>AI analyzed profile</h1>
+        <div class="container-profile">
+        <h1>Sagar Uprety</h1>
+        <p>Final Semester Computer Science Student</p>
+        <p>DevOps Enthusiast</p>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+        <div class="skills">
+            <p>Skills & Tools:</p>
+            <ul>
+                <li>DevOps Practices and Tools</li>
+                <li>JavaScript, Python, Dart</li>
+                <li>MySQL, MongoDB</li>
+                <li>Node.js, Git, GitHub</li>
+                <li>Figma, Docker, Kubernetes</li>
+                <li>Terraform, Prometheus, Ansible</li>
+                <li>Linux, Azure, AWS</li>
+                <li>Linode, VSCode</li>
+            </ul>
+        </div>
 
-    <button type="submit"><h3>Login</h3></button>
-    <button type="submit"><h3><a href="#signup.html">Signup</a></h3></button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+        <p>Coach at Major League Hacking (MLH)</p>
+        <p>GitHub Campus Expert</p>
 
-  <div class="form-container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-              
+        <div class="contact">
+            <p>Connect with me:</p>
+            <a href="mailto:sagar.uprety@email.com">Email</a>
+            <a href="https://github.com/sagaruprety" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/sagaruprety" target="_blank">LinkedIn</a>
+        </div>
+    </div>
       </div>
-   
       
       <div class="sidebar">
         <a class="active" href="#home">People you may know</a>

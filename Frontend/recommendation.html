@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="recommendation.css" />
     <link rel="stylesheet" href="utillities.css" />
     <link
       rel="stylesheet"
@@ -14,7 +14,7 @@
   <body>
     <div class="navbar">
       <div class="logo">
-        <h1><a href="">DevConnect</a></h1>
+      <a href="">DevConnect</a>
       </div>
       <div class="search-bar">
         <input placeholder="Search Here" type="text" />
@@ -49,31 +49,65 @@
            <a href="#about"><i class="fa-solid fa-user-group"></i>AI kigndom</a>
       </div>
 
-      <div class="content">
-        <form action="action_page.php" method="post">
-  <div class="form-container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <div class="content">
+        <table>
+  <tr>
+    <th>user_id</th>
+    <th>tech_field</th>
+    <th>programming_languages</th>
+    <th>region</th>
+    <th>availability</th>
+    <th>goals</th>
+    <th>experience</th>
+  </tr>
+  <tr>
+    <td>349</td>
+    <td>blockchain</td>
+    <td>go</td>
+    <td>Jaipur</td>
+    <td>Part-time availability</td>
+    <td>explore cryptocurrency technologies develop blockchain-based applications</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>324</td>
+    <td>blockchain</td>
+    <td>go rust solidity java c</td>
+    <td>Ahmedabad</td>
+    <td>Full-time availability</td>
+    <td>develop blockchain-based applications explore cryptocurrency technologies</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>blockchain</td>
+    <td>java</td>
+    <td>Chennai</td>
+    <td>Part-time availability</td>
+    <td>explore cryptocurrency technologies develop blockchain-based applications</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>213</td>
+    <td>blockchain</td>
+    <td>solidity</td>
+    <td>Kolkata</td>
+    <td>Full-time availability</td>
+    <td>develop blockchain-based applications explore cryptocurrency technologies</td>
+    <td>9</td>
+  </tr>
+  <tr>
+    <td>178</td>
+    <td>blockchain</td>
+    <td>rust</td>
+    <td>Ahmedabad</td>
+    <td>Available for projects</td>
+    <td>ensure security in decentralized systems develop blockchain-based applications explore cryptocurrency technologies</td>
+    <td>2</td>
+  </tr>
+</table>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <button type="submit"><h3>Login</h3></button>
-    <button type="submit"><h3><a href="#signup.html">Signup</a></h3></button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="form-container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-              
-      </div>
-   
-      
+    </div>
       <div class="sidebar">
         <a class="active" href="#home">People you may know</a>
         <a href="#"><i class="fa-regular fa-circle-user"></i>Rishabh</a>

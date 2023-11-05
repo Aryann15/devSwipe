@@ -13,7 +13,7 @@ body {
 
 .logo a {
   font-size: 2rem;
-  line-height: 1.9  ;
+  line-height: 1.9;
   margin: auto;
   display: block;
   text-align: center;
@@ -185,4 +185,30 @@ span.psw {
 
 button:hover {
   transform: scale(0.98);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #800080; /* Purple color */
+  color: #fff; /* White text color */
+}
+
+tr:nth-child(even) {
+  background-color: #fff; /* White color for even rows */
+}
+
+tr:nth-child(odd) {
+  background-color: #800080; /* Purple color for odd rows */
+  color: #fff; /* White text color for odd rows */
 }
