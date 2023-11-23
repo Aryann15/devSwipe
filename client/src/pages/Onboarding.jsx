@@ -13,7 +13,6 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
 
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -41,23 +40,20 @@ const programming_languages = [
   "SQL",
 ];
 
-const skills = [
-    "project management",
-    "design",
+const skills = ["project management", "design"];
 
-]
+const fields = ["front-end Development", "back-end Development", "Dev-ops"];
 
-const fields = [
-    "front-end Development",
-    "back-end Development", 
-    "Dev-ops", 
-]
+const experienceLevels = ["0-1", "2-5", "5+", "8+"];
 
+const professions = ["Student", "Full-time Employee", "Part-time Employee"];
 
 const Onboarding = () => {
-  const [personName, setPersonName] = React.useState([]); 
+  const [personName, setPersonName] = React.useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
-  const [field , setFields ] = useState([])
+  const [field, setFields] = useState([]);
+  const [experience, setExperience] = useState("");
+  const [profession, setProfession] = useState("");
 
   const handleSkills = (event) => {
     setSelectedSkills(event.target.value);
@@ -65,6 +61,14 @@ const Onboarding = () => {
 
   const handleFields = (event) => {
     setFields(event.target.value);
+  };
+
+  const handleExperience = (event) => {
+    setExperience(event.target.value);
+  };
+
+  const handleProfession = (event) => {
+    setProfession(event.target.value);
   };
 
   const handleLanguage = (event) => {
@@ -90,17 +94,64 @@ const Onboarding = () => {
             Please fill out the form
           </Typography>
         </CardContent>
-        <TextField className="TextField" id="outlined-basic" label="Name" variant="outlined" />
-        <TextField className="TextField"id="outlined-basic" label="Age" variant="outlined" />
-        <TextField className="TextField" id="outlined-basic" label="City" variant="outlined" />
-        <TextField className="TextField" id="outlined-basic" label="Goals" variant="outlined" />
-        <TextField className="TextField" id="outlined-basic" label="Profile picture link" variant="outlined"/>
-        <TextField className="TextField" id="outlined-basic" label="About me" variant="outlined" />
-        <TextField className="TextField"id="outlined-basic" label="Experience" variant="outlined" />
-        <TextField className="TextField" id="outlined-basic" label="github" variant="outlined" />
-        <TextField className="TextField" id="outlined-basic" label="linkedin" variant="outlined" />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="Name"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="Age"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="City"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="Goals"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="Profile picture link"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="About me"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="Experience"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="github"
+          variant="outlined"
+        />
+        <TextField
+          className="TextField"
+          id="outlined-basic"
+          label="linkedin"
+          variant="outlined"
+        />
         <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
-          <InputLabel id="demo-multiple-name-label">Programming Languages </InputLabel>
+          <InputLabel id="demo-multiple-name-label">
+            Programming Languages{" "}
+          </InputLabel>
           <Select
             labelId="demo-multiple-name-label"
             id="demo-multiple-name"
@@ -116,46 +167,81 @@ const Onboarding = () => {
               </MenuItem>
             ))}
           </Select>
-          </FormControl>   
-   
-          <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
-        <InputLabel id="skills-label">Skills</InputLabel>
-        <Select
-          labelId="skills-label"
-          id="skills"
-          multiple
-          value={selectedSkills}
-          onChange={handleSkills}
-          label="Skills"
-        >
-          {skills.map((skill) => (
-            <MenuItem key={skill} value={skill}>
-              {skill}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+        </FormControl>
 
-          <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
-        <InputLabel id="tech_fields-label">Tech Fields</InputLabel>
-        <Select
-          labelId="tech_field-label"
-          id="fields"
-          multiple
-          value={field}
-          onChange={handleFields}
- 
-          label="Tech Fields"
-        >
-          {fields.map((field) => (
-            <MenuItem key={field} value={field}>
-              {field}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+          <InputLabel id="skills-label">Skills</InputLabel>
+          <Select
+            labelId="skills-label"
+            id="skills"
+            multiple
+            value={selectedSkills}
+            onChange={handleSkills}
+            label="Skills"
+          >
+            {skills.map((skill) => (
+              <MenuItem key={skill} value={skill}>
+                {skill}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+          <InputLabel id="tech_fields-label">Tech Fields</InputLabel>
+          <Select
+            labelId="tech_field-label"
+            id="fields"
+            multiple
+            value={field}
+            onChange={handleFields}
+            label="Tech Fields"
+          >
+            {fields.map((field) => (
+              <MenuItem key={field} value={field}>
+                {field}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl sx={{ m: 1, width: 250 }}>
+          <InputLabel id="experience-label">Experience</InputLabel>
+          <Select
+            labelId="experience-label"
+            id="experience"
+            value={experience}
+            onChange={handleExperience}
+            label="Experience"
+          >
+            {experienceLevels.map((level) => (
+              <MenuItem key={level} value={level}>
+                {level}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <br />
+        <br />
+        <FormControl sx={{ m: 1, width: 250 }}>
+          <InputLabel id="profession-label">Profession</InputLabel>
+          <Select
+            labelId="profession-label"
+            id="profession"
+            value={profession}
+            onChange={handleProfession}
+            label="Profession"
+          >
+            {professions.map((prof) => (
+              <MenuItem key={prof} value={prof}>
+                {prof}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <CardActions>
-          <Button className="Button" size="small">Submit</Button>
+          <Button className="Button" size="small">
+            Submit
+          </Button>
         </CardActions>
       </Card>
     </>
