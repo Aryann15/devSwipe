@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -6,11 +6,13 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { useState } from "react";
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -23,7 +25,7 @@ const MenuProps = {
   },
 };
 
-const programmingLanguages = [
+const programming_languages = [
   "Javascript",
   "TypeScript",
   "Python",
@@ -39,15 +41,30 @@ const programmingLanguages = [
   "SQL",
 ];
 
-const skills = ["project management", "design"];
-const techFields = ["front-end Development", "back-end Development", "Dev-ops"];
+const skills = [
+    "project management",
+    "design",
+
+]
+
+const fields = [
+    "front-end Development",
+    "back-end Development", 
+    "Dev-ops", 
+]
+
 
 const Onboarding = () => {
-  const [personName, setPersonName] = useState([]);
-  const [age, setAge] = useState("");
+  const [personName, setPersonName] = React.useState([]); 
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [field , setFields ] = useState([])
 
   const handleSkills = (event) => {
-    setAge(event.target.value);
+    setSelectedSkills(event.target.value);
+  };
+
+  const handleFields = (event) => {
+    setFields(event.target.value);
   };
 
   const handleLanguage = (event) => {
@@ -56,67 +73,92 @@ const Onboarding = () => {
     } = event;
     setPersonName(typeof value === "string" ? value.split(",") : value);
   };
-
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="logo"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Welcome to DevSwipe
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Please fill out the form
-        </Typography>
-      </CardContent>
-      <TextField id="outlined-basic" label="Name" variant="outlined" />
-      <TextField id="outlined-basic" label="Age" variant="outlined" />
-      {/* Add other input fields */}
-      <FormControl sx={{ m: 1, width: 250 }}>
-        <InputLabel id="programming-languages-label">
-          Programming Languages
-        </InputLabel>
-        <Select
-          labelId="programming-languages-label"
-          id="programming-languages"
-          multiple
-          value={personName}
-          onChange={handleLanguage}
-          input={<OutlinedInput label="Programming Languages" />}
-          MenuProps={MenuProps}
-        >
-          {programmingLanguages.map((name) => (
-            <MenuItem key={name} value={name}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <br />
-      <FormControl>
+    <>
+      <Card className="CardContainer" sx={{ maxWidth: 345 }}>
+        <CardMedia
+          component="img"
+          alt="logo"
+          height="140"
+          image="/static/images/cards/contemplative-reptile.jpg"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Welcome to DevSwipe
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Please fill out the form
+          </Typography>
+        </CardContent>
+        <TextField className="TextField" id="outlined-basic" label="Name" variant="outlined" />
+        <TextField className="TextField"id="outlined-basic" label="Age" variant="outlined" />
+        <TextField className="TextField" id="outlined-basic" label="City" variant="outlined" />
+        <TextField className="TextField" id="outlined-basic" label="Goals" variant="outlined" />
+        <TextField className="TextField" id="outlined-basic" label="Profile picture link" variant="outlined"/>
+        <TextField className="TextField" id="outlined-basic" label="About me" variant="outlined" />
+        <TextField className="TextField"id="outlined-basic" label="Experience" variant="outlined" />
+        <TextField className="TextField" id="outlined-basic" label="github" variant="outlined" />
+        <TextField className="TextField" id="outlined-basic" label="linkedin" variant="outlined" />
+        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+          <InputLabel id="demo-multiple-name-label">Programming Languages </InputLabel>
+          <Select
+            labelId="demo-multiple-name-label"
+            id="demo-multiple-name"
+            multiple
+            value={personName}
+            onChange={handleLanguage}
+            input={<OutlinedInput label="Name" />}
+            MenuProps={MenuProps}
+          >
+            {programming_languages.map((name) => (
+              <MenuItem key={name} value={name}>
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+          </FormControl>   
+   
+          <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
         <InputLabel id="skills-label">Skills</InputLabel>
         <Select
           labelId="skills-label"
           id="skills"
-          value={age}
+          multiple
+          value={selectedSkills}
           onChange={handleSkills}
-          autoWidth
           label="Skills"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          {/* Add other skill options */}
+          {skills.map((skill) => (
+            <MenuItem key={skill} value={skill}>
+              {skill}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
-      <CardActions>
-        <Button size="small">Submit</Button>
-      </CardActions>
-    </Card>
+
+          <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+        <InputLabel id="tech_fields-label">Tech Fields</InputLabel>
+        <Select
+          labelId="tech_field-label"
+          id="fields"
+          multiple
+          value={field}
+          onChange={handleFields}
+ 
+          label="Tech Fields"
+        >
+          {fields.map((field) => (
+            <MenuItem key={field} value={field}>
+              {field}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+        <CardActions>
+          <Button className="Button" size="small">Submit</Button>
+        </CardActions>
+      </Card>
+    </>
   );
 };
 
