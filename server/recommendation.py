@@ -66,6 +66,8 @@ def get_recommendations(user_id, df, weights):
         + weights["profession"] * df["profession"]
     )
 
+    df_str = df_str.fillna("")
+
     tfidf_vectorizer = TfidfVectorizer()
     tfidf_matrix = tfidf_vectorizer.fit_transform(df_str)
 
