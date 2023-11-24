@@ -4,8 +4,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from prettytable import PrettyTable
 import json
+from flask_cors import CORS
 from flask import Flask, request, jsonify
+
 app = Flask(__name__)
+CORS(app)
+
 
 def preprocess_text(text):
     text = text.lower()
@@ -72,32 +76,13 @@ def get_recommendations(user_id, df, weights):
     sim_scores = list(enumerate(cosine_sim[user_id - 1]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
-    return [x[0] + 1 for x in sim_scores[1:]]
+    return [df[df["id"] == recommended_user_id].to_dict(orient="records")[0] for recommended_user_id in sim_scores[1:]]
 
 
-def print_recommendations(user_id, recommendations, df):
-    user_profile = df[df["id"] == user_id]
-
-    user_table = PrettyTable()
-    user_table.field_names = user_profile.columns
-    user_table.add_row(user_profile.values[0])
-
-    recommendations_table = PrettyTable()
-    recommendations_table.field_names = user_profile.columns
-
-    for recommended_user_id in recommendations:
-        recommended_profile = df[df["id"] == recommended_user_id]
-        recommendations_table.add_row(recommended_profile.values[0])
-
-    print("User Profile:")
-    print(user_table)
-    print("\nRecommendations for user", user_id, ":")
-    print(recommendations_table)
-@app.route('/api/recommendations', methods=['GET'])
+@app.route("/api/recommendations", methods=["GET"])
 def get_recommendations_api():
-    user_id = int(request.args.get('id'))
+    user_id = int(request.args.get("id"))
     recommendations_data = load_recommendations()
-
     if recommendations_data:
         if all(isinstance(item, dict) for item in recommendations_data):
             df = pd.DataFrame(recommendations_data)
@@ -117,13 +102,19 @@ def get_recommendations_api():
             }
 
             recommendations = get_recommendations(user_id, df, weights)
-            return jsonify(recommendations)
+            return jsonify({"recommendations": recommendations})
         else:
-            return jsonify({"error": "Invalid format in recommendations_data. Expecting a list of dictionaries."}), 400
+            return (
+                jsonify(
+                    {
+                        "error": "Invalid format in recommendations_data. Expecting a list of dictionaries."
+                    }
+                ),
+                400,
+            )
     else:
         return jsonify({"error": "No data found in recommendations_data."}), 400
 
+
 if __name__ == "__main__":
     app.run(debug=True)
-
-   
