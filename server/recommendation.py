@@ -38,3 +38,8 @@ def get_recommendations(user_id, df):
     tfidf_matrix = tfidf_vectorizer.fit_transform(df_str)
 
     weighted_tfidf_matrix = tfidf_matrix.multiply(['tfidf'])
+    cosine_sim = cosine_similarity(weighted_tfidf_matrix, weighted_tfidf_matrix)
+    sim_scores = list(enumerate(cosine_sim[user_id - 1]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+
+    return [x[0] + 1 for x in sim_scores[1:]]  # Exclude the user itself
