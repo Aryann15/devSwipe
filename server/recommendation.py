@@ -4,7 +4,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from prettytable import PrettyTable
 import json
-
+from flask import Flask, request, jsonify
+app = Flask(__name__)
 
 def preprocess_text(text):
     text = text.lower()
@@ -117,9 +118,6 @@ if __name__ == "__main__":
                     "profession": 5,
                     "tfidf": 1,
                 }
-
-                user_id = int(input("Enter your user ID: "))
-
                 recommendations = get_recommendations(user_id, df, weights)
                 print_recommendations(user_id, recommendations, df)
         else:
