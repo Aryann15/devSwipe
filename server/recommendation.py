@@ -94,21 +94,19 @@ def print_recommendations(user_id, recommendations, df):
     print(recommendations_table)
 
 if __name__ == "__main__":
-    # Load recommendations data
+
     recommendations_data = load_recommendations()
 
     if recommendations_data:
-        # If recommendations_data is a list of dictionaries, use it directly
+       
         if all(isinstance(item, dict) for item in recommendations_data):
             df = pd.DataFrame(recommendations_data)
 
-            # Ensure that the "id" column is present
+           
             if "id" not in df.columns:
                 print("Error: 'id' column not found in DataFrame.")
-                df = pd.DataFrame()  # Creating an empty DataFrame for safety
+                df = pd.DataFrame() 
             else:
-                # Continue with the rest of the code...
-                # Define feature weights, get user input, get recommendations, and print recommendations
                 weights = {
                     "city": 2,
                     "goals": 2,
@@ -126,7 +124,7 @@ if __name__ == "__main__":
                 print_recommendations(user_id, recommendations, df)
         else:
             print("Invalid format in recommendations_data. Expecting a list of dictionaries.")
-            df = pd.DataFrame()  # Creating an empty DataFrame for safety
+            df = pd.DataFrame() 
     else:
         print("No data found in recommendations_data.")
-        df = pd.DataFrame()  # Creating an empty DataFrame for safety
+        df = pd.DataFrame() 
