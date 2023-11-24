@@ -1,6 +1,10 @@
 import pandas as pd
 import string
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from prettytable import PrettyTable
 import json
+
 
 def preprocess_text(text):
     text = text.lower()
@@ -43,3 +47,22 @@ def get_recommendations(user_id, df):
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
     return [x[0] + 1 for x in sim_scores[1:]]  # Exclude the user itself
+
+def print_recommendations(user_id, recommendations, df):
+    user_profile = df[df['id'] == user_id]
+
+    user_table = PrettyTable()
+    user_table.field_names = user_profile.columns
+    user_table.add_row(user_profile.values[0])
+
+    recommendations_table = PrettyTable()
+    recommendations_table.field_names = user_profile.columns
+
+    for recommended_user_id in recommendations:
+        recommended_profile = df[df['id'] == recommended_user_id]
+        recommendations_table.add_row(recommended_profile.values[0])
+
+    print("User Profile:")
+    print(user_table)
+    print("\nRecommendations for user", user_id, ":")
+    print(recommendations_table)
