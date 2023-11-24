@@ -89,7 +89,7 @@ const Onboarding = () => {
   const [field, setFields] = useState([]);
   const [experience, setExperience] = useState("");
   const [profession, setProfession] = useState("");
-  const [goals,setGoals] = useState([])
+  const [selectedGoals,setSelectedGoals] = useState([])
 
 
   const handleSkills = (event) => {
@@ -113,6 +113,12 @@ const Onboarding = () => {
       target: { value },
     } = event;
     setLanguage(typeof value === "string" ? value.split(",") : value);
+  };
+  const handleGoal = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setSelectedGoals(typeof value === "string" ? value.split(",") : value);
   };
   return (
     <>
@@ -214,7 +220,7 @@ const Onboarding = () => {
             labelId="demo-multiple-name-label"
             id="demo-multiple-name"
             multiple
-            value={goals}
+            value={selectedGoals}
             onChange={handleGoal}
             input={<OutlinedInput label="Goals" />}
             MenuProps={MenuProps}
@@ -236,6 +242,7 @@ const Onboarding = () => {
             value={selectedSkills}
             onChange={handleSkills}
             label="Skills"
+            MenuProps={MenuProps}
           >
             {skills.map((skill) => (
               <MenuItem key={skill} value={skill}>
@@ -254,6 +261,7 @@ const Onboarding = () => {
             value={field}
             onChange={handleFields}
             label="Tech Fields"
+             MenuProps={MenuProps}
           >
             {fields.map((field) => (
               <MenuItem key={field} value={field}>
