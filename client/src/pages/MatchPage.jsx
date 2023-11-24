@@ -9,7 +9,7 @@ const  MatchPage = () => {
 
   useEffect(() => {
     fetch(`http://127.0.0.1:5000/api/recommendations?id=${userId}`)
-      .then((response) => response.text()) 
+      .then((response) => response.json()) 
       .then((data) => {
         console.log(data);
       })
