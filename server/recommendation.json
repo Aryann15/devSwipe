@@ -1,0 +1,1029 @@
+[
+  {
+    "id": 1,
+    "city": "Mumbai",
+    "goals": "Build a professional network",
+    "experience": "5+",
+    "programmingLanguages": ["JavaScript", "Java"],
+    "skills": ["project management", "data analysis"],
+    "techFields": ["front-end Development", "mobile app development"],
+    "profession": "Full-time Employee"
+  },
+  {
+    "id": 2,
+    "city": "Bangalore",
+    "goals": "Showcase personal projects",
+    "experience": "2-5",
+    "programmingLanguages": ["Python", "C++", "TypeScript", "Rust"],
+    "skills": ["design", "UI/UX design"],
+    "techFields": ["back-end Development", "full-stack development"],
+    "profession": "Part-time Employee"
+  },
+  {
+    "id": 3,
+    "city": "Delhi",
+    "goals": "Participate in hackathons",
+    "experience": "0-1",
+    "programmingLanguages": ["Java", "C#", "Go", "Swift"],
+    "skills": ["agile methodology", "team collaboration"],
+    "techFields": ["Dev-ops", "security"],
+    "profession": "Student"
+  },
+  {
+    "id": 4,
+    "city": "Chennai",
+    "goals": "Learn new technologies",
+    "experience": "8+",
+    "programmingLanguages": [
+      "JavaScript",
+      "Python",
+      "TypeScript",
+      "Java",
+      "C++",
+      "R",
+      "SQL"
+    ],
+    "skills": ["team collaboration", "design"],
+    "techFields": ["front-end Development", "back-end Development"],
+    "profession": "Full-time Employee"
+  },
+  {
+    "id": 5,
+    "city": "Hyderabad",
+    "goals": "Contribute to open-source projects",
+    "experience": "2-5",
+    "programmingLanguages": ["C++", "Go", "Kotlin", "Rust", "Swift"],
+    "skills": ["data analysis", "UI/UX design"],
+    "techFields": ["full-stack development", "networking"],
+    "profession": "Part-time Employee"
+  },
+  {
+    "id": 6,
+    "city": "Pune",
+    "goals": "Build a professional network",
+    "experience": "5+",
+    "programmingLanguages": ["C#", "Kotlin", "PHP", "R", "Swift", "SQL"],
+    "skills": ["agile methodology", "team collaboration"],
+    "techFields": ["Dev-ops", "database administration"],
+    "profession": "Full-time Employee"
+  },
+  {
+    "id": 7,
+    "city": "Kolkata",
+    "goals": "Showcase personal projects",
+    "experience": "2-5",
+    "programmingLanguages": ["Python", "Rust", "R", "Swift", "SQL"],
+    "skills": ["design", "agile methodology"],
+    "techFields": ["front-end Development", "back-end Development"],
+    "profession": "Part-time Employee"
+  },
+  {
+    "id": 8,
+    "city": "Ahmedabad",
+    "goals": "Participate in hackathons",
+    "experience": "0-1",
+    "programmingLanguages": ["R", "Swift", "SQL"],
+    "skills": ["UI/UX design", "project management"],
+    "techFields": ["mobile app development", "full-stack development"],
+    "profession": "Student"
+  },
+  {
+    "id": 9,
+    "city": "Jaipur",
+    "goals": "Learn new technologies",
+    "experience": "8+",
+    "programmingLanguages": [
+      "JavaScript",
+      "Java",
+      "TypeScript",
+      "C#",
+      "Kotlin",
+      "PHP",
+      "R",
+      "Swift",
+      "SQL"
+    ],
+    "skills": ["team collaboration", "design"],
+    "techFields": ["back-end Development", "security"],
+    "profession": "Full-time Employee"
+  },
+  {
+    "id": 10,
+    "city": "Chandigarh",
+    "goals": "Contribute to open-source projects",
+    "experience": "2-5",
+    "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+    "skills": ["data analysis", "UI/UX design"],
+    "techFields": ["Dev-ops", "full-stack development"],
+    "profession": "Part-time Employee"
+  },
+  [
+    {
+      "id": 11,
+      "city": "Mumbai",
+      "goals": "Participate in hackathons",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python"],
+      "skills": ["team collaboration", "design"],
+      "techFields": ["front-end Development", "mobile app development"],
+      "profession": "Student"
+    },
+    {
+      "id": 12,
+      "city": "Bangalore",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": [
+        "Java",
+        "C++",
+        "TypeScript",
+        "Rust",
+        "Swift",
+        "SQL"
+      ],
+      "skills": ["agile methodology", "project management"],
+      "techFields": ["back-end Development", "full-stack development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 13,
+      "city": "Delhi",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["Python", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "agile methodology"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 14,
+      "city": "Chennai",
+      "goals": "Contribute to open-source projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "TypeScript", "Python"],
+      "skills": ["data analysis", "team collaboration"],
+      "techFields": ["front-end Development", "mobile app development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 15,
+      "city": "Hyderabad",
+      "goals": "Participate in hackathons",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["agile methodology", "UI/UX design"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Student"
+    },
+    {
+      "id": 16,
+      "city": "Pune",
+      "goals": "Build a professional network",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 17,
+      "city": "Kolkata",
+      "goals": "Learn new technologies",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 18,
+      "city": "Ahmedabad",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 19,
+      "city": "Jaipur",
+      "goals": "Contribute to open-source projects",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 20,
+      "city": "Chandigarh",
+      "goals": "Participate in hackathons",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 21,
+      "city": "Mumbai",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["front-end Development", "mobile app development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 22,
+      "city": "Bangalore",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["Python", "C++", "TypeScript", "Rust"],
+      "skills": ["design", "UI/UX design"],
+      "techFields": ["back-end Development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 23,
+      "city": "Delhi",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 24,
+      "city": "Chennai",
+      "goals": "Contribute to open-source projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 25,
+      "city": "Hyderabad",
+      "goals": "Participate in hackathons",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["agile methodology", "UI/UX design"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Student"
+    },
+    {
+      "id": 26,
+      "city": "Pune",
+      "goals": "Build a professional network",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 27,
+      "city": "Kolkata",
+      "goals": "Learn new technologies",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 28,
+      "city": "Ahmedabad",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 29,
+      "city": "Jaipur",
+      "goals": "Contribute to open-source projects",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 30,
+      "city": "Chandigarh",
+      "goals": "Participate in hackathons",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 31,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 32,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 33,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 34,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 35,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 36,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 37,
+      "city": "Ahmedabad",
+      "goals": "Contribute to open-source projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 38,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 39,
+      "city": "Chandigarh",
+      "goals": "Contribute to open-source projects",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Student"
+    },
+    {
+      "id": 40,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 41,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 42,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 43,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 44,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 45,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 46,
+      "city": "Ahmedabad",
+      "goals": "Contribute to open-source projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 47,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 48,
+      "city": "Chandigarh",
+      "goals": "Contribute to open-source projects",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Student"
+    },
+    {
+      "id": 49,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 50,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 51,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 52,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 53,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 54,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 55,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 56,
+      "city": "Chandigarh",
+      "goals": "Contribute to open-source projects",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Student"
+    },
+    {
+      "id": 57,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 58,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 59,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 60,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 61,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 62,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 63,
+      "city": "Ahmedabad",
+      "goals": "Contribute to open-source projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 64,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 65,
+      "city": "Chandigarh",
+      "goals": "Contribute to open-source projects",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Student"
+    },
+    {
+      "id": 66,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 67,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 68,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 69,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 70,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 71,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 72,
+      "city": "Ahmedabad",
+      "goals": "Contribute to open-source projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 73,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 74,
+      "city": "Chandigarh",
+      "goals": "Contribute to open-source projects",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Student"
+    },
+    {
+      "id": 75,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 76,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 77,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 78,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 79,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 80,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 81,
+      "city": "Ahmedabad",
+      "goals": "Contribute to open-source projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 82,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 83,
+      "city": "Chandigarh",
+      "goals": "Contribute to open-source projects",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Student"
+    },
+    {
+      "id": 84,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 85,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 86,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 87,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 88,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 89,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 90,
+      "city": "Ahmedabad",
+      "goals": "Contribute to open-source projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 91,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 92,
+      "city": "Chandigarh",
+      "goals": "Contribute to open-source projects",
+      "experience": "0-1",
+      "programmingLanguages": ["Java", "C#", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["UI/UX design", "project management"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Student"
+    },
+    {
+      "id": 93,
+      "city": "Mumbai",
+      "goals": "Stay updated on industry trends",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["team collaboration", "UI/UX design"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 94,
+      "city": "Bengaluru",
+      "goals": "Learn new technologies",
+      "experience": "8+",
+      "programmingLanguages": ["Python", "C#", "Kotlin", "R", "Swift", "SQL"],
+      "skills": ["project management", "agile methodology"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 95,
+      "city": "Chennai",
+      "goals": "Showcase personal projects",
+      "experience": "2-5",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["full-stack development", "networking"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 96,
+      "city": "Hyderabad",
+      "goals": "Build a professional network",
+      "experience": "5+",
+      "programmingLanguages": ["Java", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["project management", "data analysis"],
+      "techFields": ["Dev-ops", "security"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 97,
+      "city": "Pune",
+      "goals": "Learn new technologies",
+      "experience": "0-1",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Student"
+    },
+    {
+      "id": 98,
+      "city": "Kolkata",
+      "goals": "Participate in hackathons",
+      "experience": "5+",
+      "programmingLanguages": ["Python", "C++", "Go", "Rust", "Swift", "SQL"],
+      "skills": ["data analysis", "design"],
+      "techFields": ["Dev-ops", "database administration"],
+      "profession": "Full-time Employee"
+    },
+    {
+      "id": 99,
+      "city": "Ahmedabad",
+      "goals": "Contribute to open-source projects",
+      "experience": "2-5",
+      "programmingLanguages": ["TypeScript", "Rust", "R", "Swift", "SQL"],
+      "skills": ["agile methodology", "team collaboration"],
+      "techFields": ["mobile app development", "full-stack development"],
+      "profession": "Part-time Employee"
+    },
+    {
+      "id": 100,
+      "city": "Jaipur",
+      "goals": "Showcase personal projects",
+      "experience": "5+",
+      "programmingLanguages": ["JavaScript", "Python", "Java"],
+      "skills": ["UI/UX design", "team collaboration"],
+      "techFields": ["front-end Development", "back-end Development"],
+      "profession": "Full-time Employee"
+    }
+  ]
+]
