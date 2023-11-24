@@ -33,17 +33,29 @@ def get_recommendations(user_id, df, weights):
     user_profile_str = (
         weights['city'] * user_profile['city'].values[0] +
         weights['goals'] * user_profile['goals'].values[0] +
-        weights['experience'] * user_profile['experience'].values[0]
+        weights['experience'] * user_profile['experience'].values[0] +
+        weights['programmingLanguages'] * ' '.join(user_profile['programmingLanguages'].values[0]) +
+        weights['skills'] * ' '.join(user_profile['skills'].values[0]) +
+        weights['techFields'] * ' '.join(user_profile['techFields'].values[0]) +
+        weights['profession'] * user_profile['profession'].values[0]
     )
 
     df['city'] = df['city'].apply(preprocess_text)
     df['goals'] = df['goals'].apply(preprocess_text)
     df['experience'] = df['experience'].apply(preprocess_text)
+    df['programmingLanguages'] = df['programmingLanguages'].apply(lambda x: ' '.join(x))
+    df['skills'] = df['skills'].apply(lambda x: ' '.join(x))
+    df['techFields'] = df['techFields'].apply(lambda x: ' '.join(x))
+    df['profession'] = df['profession'].apply(preprocess_text)
 
     df_str = (
         weights['city'] * df['city'] +
         weights['goals'] * df['goals'] +
-        weights['experience'] * df['experience']
+        weights['experience'] * df['experience'] +
+        weights['programmingLanguages'] * df['programmingLanguages'] +
+        weights['skills'] * df['skills'] +
+        weights['techFields'] * df['techFields'] +
+        weights['profession'] * df['profession']
     )
 
     tfidf_vectorizer = TfidfVectorizer()
@@ -55,7 +67,7 @@ def get_recommendations(user_id, df, weights):
     sim_scores = list(enumerate(cosine_sim[user_id - 1]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
-    return [x[0] + 1 for x in sim_scores[1:]]  # Exclude the user itself
+    return [x[0] + 1 for x in sim_scores[1:]] 
 
 def print_recommendations(user_id, recommendations, df):
     user_profile = df[df['id'] == user_id]
@@ -85,17 +97,17 @@ if __name__ == "__main__":
         df = pd.DataFrame(recommendations_data)
 
         weights = {
-            'city': 2.0,
-            'goals': 1.5,
-            'experience': 1.0,
+            'city': 1.0,
+            'goals': 1.2,
+            'experience': 1.7,
+            'programmingLanguages': 1.4,
+            'skills': 1.5,
+            'techFields': 2.0,
+            'profession': 1.5,
             'tfidf': 1.0 
         }
 
-        # Get user input
         user_id = int(input("Enter your user ID: "))
 
-        # Get recommendations
         recommendations = get_recommendations(user_id, df, weights)
-
-        # Print recommendations
         print_recommendations(user_id, recommendations, df)
