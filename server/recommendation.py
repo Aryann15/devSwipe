@@ -93,36 +93,37 @@ def print_recommendations(user_id, recommendations, df):
     print(user_table)
     print("\nRecommendations for user", user_id, ":")
     print(recommendations_table)
-
-if __name__ == "__main__":
-
+@app.route('/api/recommendations', methods=['GET'])
+def get_recommendations_api():
+    user_id = int(request.args.get('id'))
     recommendations_data = load_recommendations()
 
     if recommendations_data:
-       
         if all(isinstance(item, dict) for item in recommendations_data):
             df = pd.DataFrame(recommendations_data)
 
-           
             if "id" not in df.columns:
-                print("Error: 'id' column not found in DataFrame.")
-                df = pd.DataFrame() 
-            else:
-                weights = {
-                    "city": 2,
-                    "goals": 2,
-                    "experience": 5,
-                    "programmingLanguages": 4,
-                    "skills": 4,
-                    "techFields": 7,
-                    "profession": 5,
-                    "tfidf": 1,
-                }
-                recommendations = get_recommendations(user_id, df, weights)
-                print_recommendations(user_id, recommendations, df)
+                return jsonify({"error": "'id' column not found in DataFrame."}), 400
+
+            weights = {
+                "city": 2,
+                "goals": 2,
+                "experience": 5,
+                "programmingLanguages": 4,
+                "skills": 4,
+                "techFields": 7,
+                "profession": 5,
+                "tfidf": 1,
+            }
+
+            recommendations = get_recommendations(user_id, df, weights)
+            return jsonify(recommendations)
         else:
-            print("Invalid format in recommendations_data. Expecting a list of dictionaries.")
-            df = pd.DataFrame() 
+            return jsonify({"error": "Invalid format in recommendations_data. Expecting a list of dictionaries."}), 400
     else:
-        print("No data found in recommendations_data.")
-        df = pd.DataFrame() 
+        return jsonify({"error": "No data found in recommendations_data."}), 400
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+   
