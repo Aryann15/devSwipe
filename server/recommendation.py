@@ -34,3 +34,7 @@ def get_recommendations(user_id, df):
     df['experience'] = df['experience'].apply(preprocess_text)
 
     df_str = df['city'] + ' ' + df['goals'] + ' ' + df['experience']
+    tfidf_vectorizer = TfidfVectorizer()
+    tfidf_matrix = tfidf_vectorizer.fit_transform(df_str)
+
+    weighted_tfidf_matrix = tfidf_matrix.multiply(['tfidf'])
