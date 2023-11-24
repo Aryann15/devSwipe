@@ -40,20 +40,57 @@ const programming_languages = [
   "SQL",
 ];
 
-const skills = ["project management", "design"];
+const goals = [
+    "Contribute to open-source projects",
+    "Participate in hackathons",
+    "Build a professional network",
+    "Learn new technologies",
+    "Collaborate with other developers",
+    "Showcase personal projects",
+    "Stay updated on industry trends",
+  ];
 
-const fields = ["front-end Development", "back-end Development", "Dev-ops"];
-
+const skills = [
+    "project management",
+    "design",
+    "data analysis",
+    "UI/UX design",
+    "agile methodology",
+    "team collaboration",
+  ];
+  const fields = [
+    "front-end Development",
+    "back-end Development",
+    "Dev-ops",
+    "database administration",
+    "cloud computing",
+    "security",
+    "mobile app development",
+    "full-stack development",
+    "networking",
+    "game development",
+    "blockchain",
+    "data science",
+    "testing and QA",
+    "AI and machine learning",
+    "UI/UX design",
+    "project management",
+    "system administration",
+    "business analysis",
+    "IT consulting",
+  ];
 const experienceLevels = ["0-1", "2-5", "5+", "8+"];
 
 const professions = ["Student", "Full-time Employee", "Part-time Employee"];
 
 const Onboarding = () => {
-  const [personName, setPersonName] = React.useState([]);
+  const [language, setLanguage] = React.useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [field, setFields] = useState([]);
   const [experience, setExperience] = useState("");
   const [profession, setProfession] = useState("");
+  const [goals,setGoals] = useState([])
+
 
   const handleSkills = (event) => {
     setSelectedSkills(event.target.value);
@@ -75,7 +112,7 @@ const Onboarding = () => {
     const {
       target: { value },
     } = event;
-    setPersonName(typeof value === "string" ? value.split(",") : value);
+    setLanguage(typeof value === "string" ? value.split(",") : value);
   };
   return (
     <>
@@ -156,14 +193,35 @@ const Onboarding = () => {
             labelId="demo-multiple-name-label"
             id="demo-multiple-name"
             multiple
-            value={personName}
+            value={language}
             onChange={handleLanguage}
-            input={<OutlinedInput label="Name" />}
+            input={<OutlinedInput label="Programming Lnaguages" />}
             MenuProps={MenuProps}
           >
             {programming_languages.map((name) => (
               <MenuItem key={name} value={name}>
                 {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+          <InputLabel id="demo-multiple-name-label">
+            Your Goals{" "}
+          </InputLabel>
+          <Select
+            labelId="demo-multiple-name-label"
+            id="demo-multiple-name"
+            multiple
+            value={goals}
+            onChange={handleGoal}
+            input={<OutlinedInput label="Goals" />}
+            MenuProps={MenuProps}
+          >
+            {goals.map((goal) => (
+              <MenuItem key={goal} value={goal}>
+                {goal}
               </MenuItem>
             ))}
           </Select>
