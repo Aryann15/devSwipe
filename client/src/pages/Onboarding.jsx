@@ -12,6 +12,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState } from "react";
+import './Onboarding.css'
+import hero from "../assets/Hero.png"
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -121,14 +124,9 @@ const Onboarding = () => {
     setSelectedGoals(typeof value === "string" ? value.split(",") : value);
   };
   return (
-    <>
-      <Card className="CardContainer" sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          alt="logo"
-          height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
-        />
+    <div className="CardContainer" style={{backgroundColor : "violet"}}>
+    
+      <div className="card" style={{backgroundColor:"lavender"}}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Welcome to DevSwipe
@@ -305,12 +303,12 @@ const Onboarding = () => {
           </Select>
         </FormControl>
         <CardActions>
-          <Button className="Button" size="small">
+          <Button className="Button" size="medium" variant="contained">
             Submit
           </Button>
         </CardActions>
-      </Card>
-    </>
+      </div>
+      </div>
   );
 };
 
