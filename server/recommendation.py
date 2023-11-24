@@ -19,3 +19,18 @@ def load_recommendations(file_path='recommendations.json'):
     except json.JSONDecodeError:
         print(f"Error decoding JSON in '{file_path}'. Please check the file format.")
         return None
+    
+def get_recommendations(user_id, df):
+    user_profile = df[df['id'] == user_id]
+
+    if user_profile.empty:
+        print(f"User with ID {user_id} not found.")
+        return []
+
+    user_profile_str = f"{user_profile['city'].values[0]} {user_profile['goals'].values[0]} {user_profile['experience'].values[0]}"
+
+    df['city'] = df['city'].apply(preprocess_text)
+    df['goals'] = df['goals'].apply(preprocess_text)
+    df['experience'] = df['experience'].apply(preprocess_text)
+
+    df_str = df['city'] + ' ' + df['goals'] + ' ' + df['experience']
