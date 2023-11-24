@@ -4,12 +4,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from prettytable import PrettyTable
 import json
-from flask_cors import CORS
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-
 
 def preprocess_text(text):
     text = text.lower()
@@ -76,7 +75,10 @@ def get_recommendations(user_id, df, weights):
     sim_scores = list(enumerate(cosine_sim[user_id - 1]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
-    return [df[df["id"] == recommended_user_id].to_dict(orient="records")[0] for recommended_user_id in sim_scores[1:]]
+    recommended_user_ids = [recommended_user_id[0] + 1 for recommended_user_id in sim_scores[1:]]
+    filtered_df = df[df["id"].isin(recommended_user_ids)]
+    return filtered_df.to_dict(orient="records")
+
 
 
 @app.route("/api/recommendations", methods=["GET"])
