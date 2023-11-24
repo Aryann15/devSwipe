@@ -1,0 +1,37 @@
+/* Add this CSS to your component or a separate CSS file */
+
+.CardContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .CardMedia {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .FormControl {
+    margin: 10px;
+    width: 100%;
+  }
+  
+  .TextField {
+    margin: 10px;
+    width: 100%;
+  }
+  
+  .Button {
+    margin-top: 20px;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 600px) {
+    .FormControl,
+    .TextField,
+    .Button {
+      width: 100%;
+    }
+  }
+  
