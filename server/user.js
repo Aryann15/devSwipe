@@ -15,7 +15,7 @@ try {
 } catch (error) {
   console.error('Error reading user details:', error);
 }
-
+app.use(cors());  
 app.use(bodyParser.json());
 app.post('/api/userDetails', (req, res) => {
   const { userIds } = req.body;
