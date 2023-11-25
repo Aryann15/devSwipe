@@ -10,11 +10,15 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
 def preprocess_text(text):
-    text = text.lower()
-    text = "".join([char for char in text if char not in string.punctuation])
-    tokens = text.split()
-    return " ".join(tokens)
+    if isinstance(text, str):
+        text = text.lower()
+        text = "".join([char for char in text if char not in string.punctuation])
+        tokens = text.split()
+        return " ".join(tokens)
+    else:
+        return text
 
 
 def load_recommendations(file_path="recommendation.json"):
@@ -66,8 +70,6 @@ def get_recommendations(user_id, df, weights):
         + weights["profession"] * df["profession"]
     )
 
-    df_str = df_str.fillna("")
-
     tfidf_vectorizer = TfidfVectorizer()
     tfidf_matrix = tfidf_vectorizer.fit_transform(df_str)
 
@@ -77,11 +79,7 @@ def get_recommendations(user_id, df, weights):
     sim_scores = list(enumerate(cosine_sim[user_id - 1]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
 
-    recommended_user_ids = [recommended_user_id[0] + 1 for recommended_user_id in sim_scores[1:]]
-    filtered_df = df[df["id"].isin(recommended_user_ids)]
-    return filtered_df.to_dict(orient="records")
-
-
+    return [x[0] + 1 for x in sim_scores[1:]]
 
 @app.route("/api/recommendations", methods=["GET"])
 def get_recommendations_api():
@@ -106,7 +104,7 @@ def get_recommendations_api():
             }
 
             recommendations = get_recommendations(user_id, df, weights)
-            return jsonify({"recommendations": recommendations})
+            return {"recommendations": recommendations}
         else:
             return (
                 jsonify(
