@@ -52,24 +52,25 @@ const MatchPage = () => {
               onSwipe={(dir) => swiped(dir, rec.name)}
               onCardLeftScreen={() => outOfFrame(rec.name)}
             >
-              <div
-                className="card"
-                style={{
-                  backgroundImage: rec ? `url(${rec.profilePicture})` : "none",
-                  backgroundSize: "cover", // Adjust as needed
-                  // backgroundPosition: "center", // Adjust as needed
-                  borderRadius: "10px",
-                  objectFit: "cover" // Adjust as needed
-                }}
-              >
-                {rec && (
-                  <>
-                    <h1>{rec.name}</h1>
-                    <h2>{rec.age}</h2>
-                    <h3>{rec.profession}</h3>
-                    <h4>{rec.aboutme}</h4>
-                  </>
-                )}
+              <div className="card">
+                <div
+                  className="image-card"
+                  style={{
+                    backgroundImage: rec
+                      ? `url(${rec.profilePicture})`
+                      : "none",
+                  }}
+                ></div>
+                <div className="info-container">
+                  {rec && (
+                    <div className="info">
+                      <h1>{rec.name}</h1>
+                      <h2>{rec.age}</h2>
+                      <h3>{rec.profession}</h3>
+                      <h4>{rec.aboutme}</h4>
+                    </div>
+                  )}
+                </div>
               </div>
             </TinderCard>
           ))}
