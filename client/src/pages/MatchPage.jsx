@@ -23,7 +23,6 @@ const MatchPage = () => {
           .then((userDetails) => {
             console.log(userDetails)
             setRecArr(userDetails);
-
           })
           .catch((error) => {
             console.error('Error fetching user details:', error);
@@ -35,12 +34,14 @@ const MatchPage = () => {
   }, [userId]);
     return (
       <div>
-      {recArr.map(rec => (
-        <>
-            <h3>{rec.name}</h3>
-            <h3>{rec.age}</h3>
-            <h3>{rec.profession}</h3>
-            </>))}  
+      {recArr && recArr.map((rec, index) => (
+  <React.Fragment key={index}>
+    <h1>{rec && rec.name}</h1>
+    <h2>{rec && rec.age}</h2>
+    <h3>{rec && rec.profession}</h3>
+    <h4>{rec && rec.aboutme}</h4>
+  </React.Fragment>
+))}
    </div>  
     )
   }
