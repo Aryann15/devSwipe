@@ -5,7 +5,6 @@ import "./MatchPage.css";
 const MatchPage = () => {
   const [recArr, setRecArr] = useState([]);
   const userId = 1;
-  const [people, setPeople] = useState([]);
 
   const swiped = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
@@ -49,6 +48,7 @@ const MatchPage = () => {
             <TinderCard
               className="swipe"
               key={index}
+              // preventSwipe={}
               onSwipe={(dir) => swiped(dir, rec.name)}
               onCardLeftScreen={() => outOfFrame(rec.name)}
             >
@@ -56,6 +56,10 @@ const MatchPage = () => {
                 className="card"
                 style={{
                   backgroundImage: rec ? `url(${rec.profilePicture})` : "none",
+                  backgroundSize: "cover", // Adjust as needed
+                  // backgroundPosition: "center", // Adjust as needed
+                  borderRadius: "10px",
+                  objectFit: "cover" // Adjust as needed
                 }}
               >
                 {rec && (
