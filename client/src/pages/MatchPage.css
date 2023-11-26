@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background:rgb(167, 164, 168) ;
   overflow: hidden; }
 
 .tinderCards {
@@ -20,44 +21,15 @@ body {
 }
 
 .card {
-  background: rgb(190, 147, 207);
+  background: rgb(201, 172, 212);
   border-radius: 5px;
   box-shadow: 0px 3px 3px 1px rgb(42, 7, 56);
-  width: 500px;
-  height: 600px;
+  width: 1400px;
+  height: 800px;
   position: absolute;
-  /* z-index: 1; */
-  /* transition: z-index 0.5s, transform 0.5s ease; */
-  /* backface-visibility: hidden; */
   cursor: grab;
-}
-
-.card h1 {
-  font-size: 2rem;
-  position: absolute;
-  top: 10px;
-  left: 20px;
-}
-
-.card h2 {
-  font-size: 1.5rem;
-  position: absolute;
-  top: 50px;
-  left: 20px;
-}
-
-.card h3 {
-  font-size: 1rem;
-  position: absolute;
-  top: 100px;
-  left: 20px;
-}
-
-.card h4 {
-  font-size: 0.8rem;
-  position: absolute;
-  top: 150px;
-  left: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 
@@ -70,3 +42,60 @@ body {
   transform: translateX(-150%) rotate(-30deg);
   z-index: 3;
 }
+
+.image-card {
+  flex: 1;
+  width: 30%;
+  height: 70%;
+  background-size: cover;
+  overflow: hidden;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.info-container {
+  flex: 2;
+  background: rgb(191, 143, 223);
+  padding: 20px;
+  margin: 30px;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+/* 
+.info h1,
+.info h2,
+.info h3 {
+  margin: 0;
+  color: rgb(0, 0, 0);
+} */
+
+.info-container p {
+  margin: 10px 0;
+}
+
+/* 
+.image-card {
+  width: 30%;
+  height: 70%;
+  background-size: cover;
+  background-position: center;
+}
+
+.info-container {
+  position: absolute;
+  bottom: 0;
+  background-color: brown;
+  width: 70%;
+  height: 100%;  
+}
+.info {
+  padding: 20px;
+}
+
+.info h1 {
+  font-size: 2rem;
+}  
+
+.info h2 {
+  font-size: 1.5rem;
+} */
