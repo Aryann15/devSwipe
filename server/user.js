@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const cors = require('cors');  // Import cors module
-
+const cors = require('cors');  
+const jwt = require('jsonwebtoken');
 const app = express();
 const port = 5001;
 
@@ -22,13 +22,13 @@ app.post('/api/userDetails', (req, res) => {
   if (!userIds || !Array.isArray(userIds)) {
     return res.status(400).json({ error: 'Invalid user IDs' });
   }
-
   const userDetails = userIds.map((userId) => {
     const user = userDetailsData[userId];
-    return user ? { id: userId, name: user.name,
+    return user ? { id: userId,
+         name: user.name,
          age: user.age , 
          profession : user.profession,
-         techField : user.techField,
+         techFields : user.techFields,
          profilePicture : user.profilePicture,
          aboutme : user.aboutme,
 } : null;
@@ -36,7 +36,23 @@ app.post('/api/userDetails', (req, res) => {
   res.json(userDetails);
 });
 
-// console.log(userDetailsData)
+
+let recommendations = JSON.parse(fs.readFileSync('./recommendation.json', 'utf-8'));
+
+app.post('/signup', (req, res) => {
+    const newUser = req.body;
+
+    const existingUser = recommendations.find(user => user.username === newUser.username);
+    if (existingUser) {
+      return res.status(403).json({ message: 'User already exists' });
+    }
+    newUser.id = recommendations.length + 10;
+
+    recommendations.push(newUser);
+  
+    // Return the newly created user
+    res.json({ message: 'User created successfully', user: newUser });
+  });
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
