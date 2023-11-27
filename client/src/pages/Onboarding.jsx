@@ -91,6 +91,14 @@ const Onboarding = () => {
   const [experience, setExperience] = useState("");
   const [profession, setProfession] = useState("");
   const [selectedGoals,setSelectedGoals] = useState([])
+  const [name,setName] = useState ("")
+  const [age,setAge] = useState ()
+  const [city,setCity] = useState ("")
+  const [picture,setPicture] = useState ("")
+  const [aboutme,setAboutme] = useState ("")
+  const [github,setGithub] = useState ("")
+  const [linkedin,setLinkedin] = useState ("")
+
 
   const handleOnboardingSubmit = async () => {
     try {
@@ -104,6 +112,8 @@ const userId = queryParams.get('userId');
         },
         body: JSON.stringify({
           userId,
+      
+
           selectedGoals,
           selectedSkills
         }),
