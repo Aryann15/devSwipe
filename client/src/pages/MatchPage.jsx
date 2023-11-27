@@ -15,12 +15,13 @@ const MatchPage = () => {
   };
 
   useEffect(() => {
-    // Fetch user recommendations
+    const queryParams = new URLSearchParams(window.location.search);
+    const userId = queryParams.get("userId");
     fetch(`http://127.0.0.1:5000/api/recommendations?id=${userId}`)
       .then((response) => response.json())
       .then((userIds) => {
-        // Fetch user details based on recommendations
-        fetch("http://127.0.0.1:5001/api/userDetails", {
+        console.log(userIds)
+        fetch("http://127.0.0.1:5002/api/userDetails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -48,7 +49,7 @@ const MatchPage = () => {
             <TinderCard
               className="swipe"
               key={index}
-              // preventSwipe={}
+              preventSwipe={['left', 'right']}
               onSwipe={(dir) => swiped(dir, rec.name)}
               onCardLeftScreen={() => outOfFrame(rec.name)}
             >
