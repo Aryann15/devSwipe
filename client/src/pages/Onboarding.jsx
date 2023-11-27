@@ -112,8 +112,6 @@ const userId = queryParams.get('userId');
         },
         body: JSON.stringify({
           userId,
-      
-
           selectedGoals,
           selectedSkills
         }),
@@ -130,6 +128,27 @@ const userId = queryParams.get('userId');
     }
   };
   
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+  const handleAge = (event) => {
+    setAge(event.target.value);
+  };
+  const handleCity= (event) => {
+    setCity(event.target.value);
+  };
+  const handleAboutme = (event) => {
+    setAboutme(event.target.value);
+  };
+  const handleGithub = (event) => {
+    setGithub(event.target.value);
+  };
+  const handleLinkedin = (event) => {
+    setLinkedin(event.target.value);
+  };
+  const handlePicture = (event) => {
+    setPicture(event.target.value);
+  };
   const handleSkills = (event) => {
     setSelectedSkills(event.target.value);
   };
@@ -175,54 +194,56 @@ const userId = queryParams.get('userId');
           id="outlined-basic"
           label="Name"
           variant="outlined"
+          onChange={handleName}
         />
         <TextField
           className="TextField"
           id="outlined-basic"
           label="Age"
           variant="outlined"
+          onChange={handleAge}
+
         />
         <TextField
           className="TextField"
           id="outlined-basic"
           label="City"
           variant="outlined"
+          onChange={handleCity}
+
         />
-        <TextField
-          className="TextField"
-          id="outlined-basic"
-          label="Goals"
-          variant="outlined"
-        />
+        
         <TextField
           className="TextField"
           id="outlined-basic"
           label="Profile picture link"
           variant="outlined"
+          onChange={handlePicture}
+
         />
         <TextField
           className="TextField"
           id="outlined-basic"
           label="About me"
           variant="outlined"
+          onChange={handleAboutme}
+
         />
-        <TextField
-          className="TextField"
-          id="outlined-basic"
-          label="Experience"
-          variant="outlined"
-        />
+        
         <TextField
           className="TextField"
           id="outlined-basic"
           label="github"
           variant="outlined"
+          onChange={handleGithub}
+
         />
         <TextField
           className="TextField"
           id="outlined-basic"
           label="linkedin"
           variant="outlined"
+          onChange={handleLinkedin}
         />
         <FormControl className="FormControl">
           <InputLabel id="demo-multiple-name-label">
