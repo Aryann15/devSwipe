@@ -46,7 +46,7 @@ app.post('/signup', (req, res) => {
     if (existingUser) {
       return res.status(403).json({ message: 'User already exists' });
     }
-    newUser.id = recommendations.length + 10;
+    newUser.id = recommendations.length + 2;
 
     recommendations.push(newUser);
   
