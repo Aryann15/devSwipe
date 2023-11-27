@@ -4,7 +4,7 @@ const fs = require('fs');
 const cors = require('cors');  
 const jwt = require('jsonwebtoken');
 const app = express();
-const port = 5001;
+const port = 5002;
 
 const userDetailsPath = 'recommendation.json';
 let userDetailsData = {};
@@ -41,18 +41,35 @@ let recommendations = JSON.parse(fs.readFileSync('./recommendation.json', 'utf-8
 
 app.post('/signup', (req, res) => {
     const newUser = req.body;
-
+  
+    
     const existingUser = recommendations.find(user => user.username === newUser.username);
     if (existingUser) {
       return res.status(403).json({ message: 'User already exists' });
     }
-    newUser.id = recommendations.length + 2;
+  
+    newUser.id = recommendations.length + 1;
 
     recommendations.push(newUser);
+  
+    fs.writeFileSync('./recommendation.json', JSON.stringify(recommendations, null, 2));
   
     // Return the newly created user
     res.json({ message: 'User created successfully', user: newUser });
   });
+
+
+  app.post('/onboarding', (req, res) => {
+    console.log("received post req onboarding")
+    const {userId, selectedGoals, selectedSkills } = req.body;
+    
+   
+    fs.writeFileSync('./recommendation.json', JSON.stringify(recommendations, null, 2));
+  
+    res.json({ message: 'Onboarding data updated successfully', user: userToUpdate });
+  });
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
