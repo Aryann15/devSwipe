@@ -60,7 +60,7 @@ def get_recommendations(user_id, df, weights):
     df["profession"] = df["profession"].apply(preprocess_text)
 
     df_str = (
-        weights["city"] * df["city"]
+        weights["city"] * df["city"][0]
         + weights["goals"] * df["goals"]
         + weights["experience"] * df["experience"]
         + weights["programmingLanguages"] * df["programmingLanguages"]
@@ -75,10 +75,12 @@ def get_recommendations(user_id, df, weights):
     weighted_tfidf_matrix = tfidf_matrix.multiply(weights["tfidf"])
 
     cosine_sim = cosine_similarity(weighted_tfidf_matrix, weighted_tfidf_matrix)
-    sim_scores = list(enumerate(cosine_sim[user_id - 1]))
-    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
-
-    return [x[0] + 1 for x in sim_scores[1:]]
+    if user_id - 1 < len(cosine_sim):
+        sim_scores = list(enumerate(cosine_sim[user_id - 1]))
+        sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+        return [x[0] + 1 for x in sim_scores[1:]]
+    else :
+        return ("index out of bound")
 
 @app.route("/api/recommendations", methods=["GET"])
 def get_recommendations_api():
