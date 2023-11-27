@@ -6,7 +6,6 @@ from prettytable import PrettyTable
 import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
 app = Flask(__name__)
 CORS(app)
 
@@ -104,7 +103,8 @@ def get_recommendations_api():
             }
 
             recommendations = get_recommendations(user_id, df, weights)
-            return {"recommendations": recommendations}
+           
+            return (recommendations)
         else:
             return (
                 jsonify(

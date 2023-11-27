@@ -64,10 +64,10 @@ const MatchPage = () => {
                 <div className="info-container">
                   {rec && (
                     <div className="info">
-                      <h1>{rec.name}</h1>
-                      <h2>{rec.age}</h2>
-                      <h3>{rec.profession}</h3>
-                      <h4>{rec.aboutme}</h4>
+                      <h1 className="name">{rec.name}</h1>
+                      <h2 className="age">{rec.age}</h2>
+                      <h3 className="profession">{rec.profession}</h3>
+                      <h4 className="aboutme">{rec.aboutme}</h4>
                     </div>
                   )}
                 </div>
