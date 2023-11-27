@@ -19,7 +19,16 @@ const SignupPage = () => {
     });
   };
 
- 
+  const handleSignup = async () => {
+    try {
+      const response = await signupUser(formData);
+      const userId = response.data.userId;
+     navigate(`/onboarding?userId=${userId}`);
+    } catch (error) {
+      console.error('Signup failed', error);
+    }
+  };
+
   return (
     <div>
       <h1>Signup Page</h1>
