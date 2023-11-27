@@ -11,7 +11,15 @@ const SignupPage = () => {
    
   });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
+ 
   return (
     <div>
       <h1>Signup Page</h1>
@@ -35,6 +43,7 @@ const SignupPage = () => {
             onChange={handleChange}
           />
         </label>
+    
         <br />
         <button type="button" onClick={handleSignup}>
           Signup
