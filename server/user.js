@@ -66,7 +66,14 @@ app.post("/signup", (req, res) => {
 app.post("/onboarding", (req, res) => {
   console.log("received post req onboarding");
   const { userId, selectedGoals, selectedSkills } = req.body;
-  
+  const userIdNumber = parseInt(userId);
+
+  const userToUpdate = recommendations.find((user) => user.id === userIdNumber);
+
+  if (!userToUpdate) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
   userToUpdate.selectedGoals = selectedGoals;
   userToUpdate.selectedSkills = selectedSkills;
 
