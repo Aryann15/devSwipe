@@ -17,6 +17,9 @@ try {
 }
 app.use(cors());
 app.use(bodyParser.json());
+
+
+
 app.post("/api/userDetails", (req, res) => {
   const { userIds } = req.body;
   if (!userIds || !Array.isArray(userIds)) {
@@ -52,14 +55,10 @@ app.post("/signup", (req, res) => {
   if (existingUser) {
     return res.status(403).json({ message: "User already exists" });
   }
-  newUser.id = recommendations.length + 2;
+  newUser.id = recommendations.length + 1;
 
   recommendations.push(newUser);
-  fs.writeFileSync(
-    "./recommendation.json",
-    JSON.stringify(recommendations, null, 2)
-  );
-
+  fs.writeFileSync('./recommendation.json', JSON.stringify(recommendations,null, 2));
   res.json({ message: "User created successfully", user: newUser });
 });
 
@@ -89,24 +88,24 @@ app.post("/onboarding", (req, res) => {
     return res.status(404).json({ message: "User not found" });
   }
 
+  userToUpdate.city = city;
+  userToUpdate.goals = selectedGoals;
+  userToUpdate.experience = experience;
+  userToUpdate.programmingLanguages = language;
+  userToUpdate.skills = selectedSkills;
+  userToUpdate.techFields = field;
+  userToUpdate.profession = profession;
   userToUpdate.name = name;
   userToUpdate.age = ageNumber;
-  userToUpdate.city = city;
   userToUpdate.profilePicture = picture;
   userToUpdate.aboutme = aboutme;
   userToUpdate.github = github;
   userToUpdate.linkedin = linkedin;
-  userToUpdate.programmingLanguages = language;
-  userToUpdate.goals = selectedGoals;
-  userToUpdate.skills = selectedSkills;
-  userToUpdate.techFields = field;
-  userToUpdate.experience = experience;
-  userToUpdate.profession = profession;
 
-  fs.writeFileSync(
-    "./recommendation.json",
-    JSON.stringify(recommendations, null, 2)
-  );
+  // console.log('userToUpdate:', userToUpdate);
+
+  fs.writeFileSync('./recommendation.json', JSON.stringify(recommendations,null, 2));
+
 
   res.json({
     message: "Onboarding data updated successfully",
