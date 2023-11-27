@@ -1,8 +1,6 @@
 import React from "react";
-import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -94,7 +92,34 @@ const Onboarding = () => {
   const [profession, setProfession] = useState("");
   const [selectedGoals,setSelectedGoals] = useState([])
 
+  const handleOnboardingSubmit = async () => {
+    try {
+      const queryParams = new URLSearchParams(window.location.search);
+const userId = queryParams.get('userId');
 
+      const response = await fetch('http://localhost:5002/onboarding', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId,
+          selectedGoals,
+          selectedSkills
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+  
+      const data = await response.json();
+      console.log(data.message); // Log success message
+    } catch (error) {
+      console.error('Onboarding failed', error);
+    }
+  };
+  
   const handleSkills = (event) => {
     setSelectedSkills(event.target.value);
   };
@@ -124,9 +149,9 @@ const Onboarding = () => {
     setSelectedGoals(typeof value === "string" ? value.split(",") : value);
   };
   return (
-    <div className="CardContainer" style={{backgroundColor : "violet"}}>
+    <div className="CardContainer">
     
-      <div className="card" style={{backgroundColor:"lavender"}}>
+      <div className="onboarding-card">
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Welcome to DevSwipe
@@ -189,7 +214,7 @@ const Onboarding = () => {
           label="linkedin"
           variant="outlined"
         />
-        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+        <FormControl className="FormControl">
           <InputLabel id="demo-multiple-name-label">
             Programming Languages{" "}
           </InputLabel>
@@ -210,7 +235,7 @@ const Onboarding = () => {
           </Select>
         </FormControl>
 
-        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+        <FormControl className="FormControl" >
           <InputLabel id="demo-multiple-name-label">
             Your Goals{" "}
           </InputLabel>
@@ -231,7 +256,7 @@ const Onboarding = () => {
           </Select>
         </FormControl>
 
-        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+        <FormControl className="FormControl" >
           <InputLabel id="skills-label">Skills</InputLabel>
           <Select
             labelId="skills-label"
@@ -249,8 +274,7 @@ const Onboarding = () => {
             ))}
           </Select>
         </FormControl>
-
-        <FormControl className="FormControl" sx={{ m: 1, width: 250 }}>
+        <FormControl className="FormControl" >
           <InputLabel id="tech_fields-label">Tech Fields</InputLabel>
           <Select
             labelId="tech_field-label"
@@ -268,7 +292,7 @@ const Onboarding = () => {
             ))}
           </Select>
         </FormControl>
-        <FormControl sx={{ m: 1, width: 250 }}>
+        <FormControl className="FormControl" >
           <InputLabel id="experience-label">Experience</InputLabel>
           <Select
             labelId="experience-label"
@@ -284,9 +308,7 @@ const Onboarding = () => {
             ))}
           </Select>
         </FormControl>
-        <br />
-        <br />
-        <FormControl sx={{ m: 1, width: 250 }}>
+        <FormControl className="FormControl" >
           <InputLabel id="profession-label">Profession</InputLabel>
           <Select
             labelId="profession-label"
@@ -302,8 +324,10 @@ const Onboarding = () => {
             ))}
           </Select>
         </FormControl>
+        <br />
+        <br />
         <CardActions>
-          <Button className="Button" size="medium" variant="contained">
+          <Button className="Button" size="medium" variant="contained" onClick={handleOnboardingSubmit}>
             Submit
           </Button>
         </CardActions>
