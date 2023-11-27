@@ -112,8 +112,19 @@ const userId = queryParams.get('userId');
         },
         body: JSON.stringify({
           userId,
+          name,
+          age,
+          city,
+          picture,
+          aboutme,
+          github,
+          linkedin,
+          language,
           selectedGoals,
-          selectedSkills
+          selectedSkills,
+          field,
+          experience, 
+          profession
         }),
       });
   
