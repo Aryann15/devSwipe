@@ -1,7 +1,17 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+   
+  });
+
+
   return (
     <div>
       <h1>Signup Page</h1>
