@@ -1,57 +1,34 @@
-.CardContainer {
-    padding-top: 00px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 00px;
-    height: 100vh;
-  }
 
-  .card {
-    width: 500px;
-    max-height: 70vh;
-    overflow: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-  }
-  .card::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  .card::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
-  .CardMedia {
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  .FormControl {
-    margin-bottom: 15px;
-    width: 100%;
-  }
-  
-  .TextField {
-    width: 70%;
-    padding: 100px;
-    margin-bottom: 15px;
-  }
-  
-  .Button {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    margin-left: 100px;
-    padding: 20px 200px;
-  }
-  
-  /* Adjustments for smaller screens */
-  @media (max-width: 600px) {
-    .FormControl,
-    .TextField,
-    .Button {
-      width: 100%;
-    }
-  }
-  
+.CardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(185, 153, 216);
+}
+
+.onboarding-card {
+  width: 500px;
+  background-color: rgb(201, 201, 224);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardContent {
+  margin-bottom: 20px;
+}
+
+.TextField {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.FormControl {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.Button {
+  width: 100%;
+}
