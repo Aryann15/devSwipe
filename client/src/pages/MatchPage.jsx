@@ -6,12 +6,16 @@ const MatchPage = () => {
   const [recArr, setRecArr] = useState([]);
   const userId = 1;
 
-  const swiped = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
-  };
+  const swiped = (direction, name, id) => {
+    console.log(`swiped ${direction} on` + id);
+    if (direction=="up") {
+      console.log("targetid and name" + id ,name)
+    } 
+    const cardContainer = document.querySelector(".cardcd");
+  }
 
   const outOfFrame = (name) => {
-    console.log(name + " left the screen");
+    // console.log(name + " left the screen");
   };
 
   useEffect(() => {
@@ -21,12 +25,12 @@ const MatchPage = () => {
       .then((response) => response.json())
       .then((userIds) => {
         console.log(userIds)
-        fetch("http://127.0.0.1:5002/api/userDetails", {
+        fetch("http://127.0.0.1:5001/api/userDetails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ userIds }),
+          body: JSON.stringify({ userIds}),
         })
           .then((response) => response.json())
           .then((userDetails) => {
@@ -50,7 +54,7 @@ const MatchPage = () => {
               className="swipe"
               key={index}
               preventSwipe={['left', 'right']}
-              onSwipe={(dir) => swiped(dir, rec.name)}
+              onSwipe={(dir) => swiped(dir, rec.name , rec.id)}
               onCardLeftScreen={() => outOfFrame(rec.name)}
             >
               <div className="card">
@@ -69,6 +73,11 @@ const MatchPage = () => {
                       <h2 className="age">{rec.age}</h2>
                       <h3 className="profession">{rec.profession}</h3>
                       <h4 className="aboutme">{rec.aboutme}</h4>
+                      <h4 className="techFields">{rec.techFields}</h4>
+                      <h3 className="experience"> {rec.experience}</h3>
+                      <h4 className="languages">{rec.languages}</h4>
+                      <h4 className="skills">{rec.skills}</h4>
+                      <h4 className="goals">{rec.goals}</h4>
                     </div>
                   )}
                 </div>
