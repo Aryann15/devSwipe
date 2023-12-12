@@ -3,7 +3,20 @@ import React, { useEffect, useState } from "react";
 // const userId = 95
 
 const ConnectionsPage = () => {
-
+  const userId = 95
+  const [connections, setConnections] = useState([]);
+  useEffect(() => {
+    fetch(`http://127.0.0.1:5001/connections/${userId}`)
+      .then((response) => response.json())
+      .then((connectionsData) => {
+        console.log(connectionsData)
+        setConnections(connectionsData);
+      })
+      .catch((error) => {
+        console.error("Error fetching connections:", error);
+      });
+  }, [userId]);
+  
   
   return (
     <div>
