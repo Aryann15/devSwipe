@@ -171,6 +171,13 @@ app.get("/connections/:targetUserId", (req, res) => {
     return res.status(500).json({ error: "Invalid connections data" });
   }
 
+  const connectionRequests = connectionsData
+    .filter((connection) => connection.targetUserId === targetUserId && connection.status === "pending")
+    .map((connection) => ({
+      userId: connection.userId,
+    }));
+    console.log(connectionRequests)
+  res.json(connectionRequests);
 });
 
 
