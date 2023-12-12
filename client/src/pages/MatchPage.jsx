@@ -4,7 +4,7 @@ import "./MatchPage.css";
 
 const MatchPage = () => {
   const [recArr, setRecArr] = useState([]);
-  const [targetUserId , setTargetUSerId] = useState ()
+  const [targetUserId , setTargetUserId] = useState ()
   const userId = 1;
 
 
@@ -39,6 +39,17 @@ const MatchPage = () => {
         console.error("Error fetching recommendations:", error);
       });      
   }, [userId]);
+
+  const swiped = (direction, name, id) => {
+    console.log(`swiped ${direction} on` + id);
+    if (direction === "up") {
+      console.log("targetId and name: " + id, name);
+      setTargetUserId(id);
+    }
+    const cardContainer = document.querySelector(".cardcd");
+  };
+
+
     return (
     <div className="tinderCards">
       <div className="tinderCards__cardContainer">
