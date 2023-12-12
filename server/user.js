@@ -175,6 +175,7 @@ app.get("/connections/:targetUserId", (req, res) => {
     .filter((connection) => connection.targetUserId === targetUserId && connection.status === "pending")
     .map((connection) => ({
       userId: connection.userId,
+      status: connection.status
     }));
     console.log(connectionRequests)
   res.json(connectionRequests);
