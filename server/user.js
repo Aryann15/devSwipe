@@ -130,6 +130,18 @@ app.use(express.urlencoded({ extended: true }));
 
 let connectionsData = JSON.parse(fs.readFileSync("./connections.json", "utf-8"));
 
+app.post("/connections/request", (req, res) => {
+  const { userId, targetUserId } = req.body;
+
+  const user = recommendations.find((user) => user.id === userId);
+  const targetUser = recommendations.find((user) => user.id === targetUserId);
+
+  if (!user || !targetUser) {
+    return res.status(404).json({ message: "User or target user not found" });
+  }
+})
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
