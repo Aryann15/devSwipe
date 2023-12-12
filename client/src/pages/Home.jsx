@@ -12,6 +12,9 @@ const ConnectionsPage = () => {
       .then((connectionsData) => {
         console.log(connectionsData)
         setConnections(connectionsData);
+
+        const userIds = connectionRequests.map((request) => request.userId);
+
         fetch("http://127.0.0.1:5001/api/userDetails", {
           method: "POST",
           headers: {
