@@ -4,7 +4,7 @@ const fs = require("fs");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const app = express();
-const port = 5002;
+const port = 5001;
 
 const userDetailsPath = "recommendation.json";
 let userDetailsData = {};
@@ -19,9 +19,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-
 app.post("/api/userDetails", (req, res) => {
   const { userIds } = req.body;
+  console.log(userIds)
   if (!userIds || !Array.isArray(userIds)) {
     return res.status(400).json({ error: "Invalid user IDs" });
   }
@@ -34,8 +34,12 @@ app.post("/api/userDetails", (req, res) => {
           age: user.age,
           profession: user.profession,
           techFields: user.techFields,
+          experience:user.experience,
           profilePicture: user.profilePicture,
           aboutme: user.aboutme,
+          languages : user.programmingLanguages,
+          skills: user.skills,
+          goals: user.goals
         }
       : null;
   });
@@ -58,7 +62,10 @@ app.post("/signup", (req, res) => {
   newUser.id = recommendations.length + 1;
 
   recommendations.push(newUser);
-  fs.writeFileSync('./recommendation.json', JSON.stringify(recommendations,null, 2));
+  fs.writeFileSync(
+    "./recommendation.json",
+    JSON.stringify(recommendations, null, 2)
+  );
   res.json({ message: "User created successfully", user: newUser });
 });
 
@@ -104,14 +111,24 @@ app.post("/onboarding", (req, res) => {
 
   // console.log('userToUpdate:', userToUpdate);
 
-  fs.writeFileSync('./recommendation.json', JSON.stringify(recommendations,null, 2));
-
+  fs.writeFileSync(
+    "./recommendation.json",
+    JSON.stringify(recommendations, null, 2)
+  );
 
   res.json({
     message: "Onboarding data updated successfully",
     user: userToUpdate,
   });
 });
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
+
+// Connnection requests
+
+let connectionsData = JSON.parse(fs.readFileSync("./connections.json", "utf-8"));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
