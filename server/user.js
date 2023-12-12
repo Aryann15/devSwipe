@@ -140,7 +140,7 @@ app.post("/connections/request", (req, res) => {
     return res.status(404).json({ message: "User or target user not found" });
   }
 
-  // Check if a connection request already exists
+  
   const existingRequest = connectionsData.find(
     (conn) => conn.userId === userId && conn.targetUserId === targetUserId
   );
@@ -149,6 +149,12 @@ app.post("/connections/request", (req, res) => {
     return res.status(400).json({ message: "Connection request already sent" });
   }  connectionsData.push({ userId, targetUserId, status: "pending" });
 
+  fs.writeFileSync(
+    "./connections.json",
+    JSON.stringify(connectionsData, null, 2)
+  );
+
+  res.json({ message: "Connection request sent successfully" });
 })
 
 
