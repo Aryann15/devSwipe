@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const ConnectionsPage = () => {
   const userId = 95
-  const [recData ,setRecData] = useState ([])
+  const [reqData ,setReqData] = useState ([])
   const [connections, setConnections] = useState([]);
   useEffect(() => {
     fetch(`http://127.0.0.1:5001/connections/${userId}`)
@@ -15,25 +15,25 @@ const ConnectionsPage = () => {
 
         const userIds = connectionRequests.map((request) => request.userId);
 
+        // Fetch user details for the requesters
         fetch("http://127.0.0.1:5001/api/userDetails", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ userIds}),
+          body: JSON.stringify({ userIds }),
         })
           .then((response) => response.json())
           .then((userDetails) => {
-            console.log(userDetails);
-            setRecArr(userDetails);
+            setReqData(userDetails);
           })
           .catch((error) => {
             console.error("Error fetching user details:", error);
           });
       })
       .catch((error) => {
-        console.error("Error fetching recommendations:", error);
-      });      
+        console.error("Error fetching connections:", error);
+      });
   }, [userId]);
   
   
@@ -41,20 +41,13 @@ const ConnectionsPage = () => {
     <div>
       <h1>Connections</h1>
       <ul>
-        {connections.map((connection) => (
+      {connections.map((connection) => (
           <li key={connection.userId}>
-            {connection.status === "pending" && (
+            {connection.status === "pending" && reqData.length > 0 && (
               <div>
-                <p>{`Connection request from ${connection.userId}`}</p>
-                {/* <button onClick={() => handleAccept(connection.id)}>Accept</button> */}
-                {/* <button onClick={() => handleReject(connection.id)}>Reject</button> */}
+                <p>{`Connection request from user ${connection.userId} (${reqData.find(user => user.id === connection.userId)?.name})`}</p>
+
               </div>
-            )}
-            {connection.status === "accepted" && (
-              <p>{`${connection.name} is now your connection`}</p>
-            )}
-            {connection.status === "rejected" && (
-              <p>{`Connection request from ${connection.name} has been rejected`}</p>
             )}
           </li>
         ))}
