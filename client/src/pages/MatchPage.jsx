@@ -4,15 +4,9 @@ import "./MatchPage.css";
 
 const MatchPage = () => {
   const [recArr, setRecArr] = useState([]);
+  const [targetUserId , setTargetUSerId] = useState ()
   const userId = 1;
 
-  const swiped = (direction, name, id) => {
-    console.log(`swiped ${direction} on` + id);
-    if (direction=="up") {
-      console.log("targetid and name" + id ,name)
-    } 
-    const cardContainer = document.querySelector(".cardcd");
-  }
 
   const outOfFrame = (name) => {
     // console.log(name + " left the screen");
@@ -43,9 +37,9 @@ const MatchPage = () => {
       })
       .catch((error) => {
         console.error("Error fetching recommendations:", error);
-      });
+      });      
   }, [userId]);
-  return (
+    return (
     <div className="tinderCards">
       <div className="tinderCards__cardContainer">
         {recArr &&
