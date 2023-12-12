@@ -143,6 +143,7 @@ console.log(targetUserId)
   if (!targetUser) {
     return res.status(404).json({ message: "target user not found" });
   }
+
   const existingRequest = connectionsData.find(
     (conn) => conn.userId === userId && conn.targetUserId === targetUserId
   );
@@ -158,6 +159,19 @@ console.log(targetUserId)
 
   res.json({ message: "Connection request sent successfully" });
 })
+
+
+
+
+app.get("/connections/:targetUserId", (req, res) => {
+  const targetUserId = parseInt(req.params.targetUserId);
+
+  if (!connectionsData || !Array.isArray(connectionsData)) {
+    console.log("error data");
+    return res.status(500).json({ error: "Invalid connections data" });
+  }
+
+});
 
 
 app.listen(port, () => {
