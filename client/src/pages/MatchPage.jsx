@@ -49,6 +49,26 @@ const MatchPage = () => {
     const cardContainer = document.querySelector(".cardcd");
   };
 
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const userId =  parseInt(queryParams.get("userId"), 10);
+    if (targetUserId) {
+      fetch("http://127.0.0.1:5001/connections/request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId, targetUserId }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.message);
+        })
+        .catch((error) => {
+          console.error("Error sending connection request:", error);
+        });
+    }
+  }, [targetUserId]);
 
     return (
     <div className="tinderCards">
