@@ -160,7 +160,6 @@ app.post("/connections/request", (req, res) => {
 app.post("/connections/accept", (req, res) => {
   const { userId, targetUserId } = req.body;
 
-  // Find the connection request
   const connection = connectionsData.find(
     (conn) => conn.userId === targetUserId && conn.targetUserId === userId && conn.status === "pending"
   );
@@ -169,7 +168,16 @@ app.post("/connections/accept", (req, res) => {
     return res.status(404).json({ message: "Connection request not found" });
   }
 
-  });
+  
+  connection.status = "accepted";
+
+  fs.writeFileSync(
+    "./connections.json",
+    JSON.stringify(connectionsData, null, 2)
+  );
+
+  res.json({ message: "Connection request accepted successfully" });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
