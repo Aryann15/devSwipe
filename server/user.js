@@ -29,7 +29,7 @@ app.post("/api/userDetails", (req, res) => {
     const user = userDetailsData[userId];
     return user
       ? {
-          id: userId,
+          id: user.id,
           name: user.name,
           age: user.age,
           profession: user.profession,
@@ -135,12 +135,14 @@ app.post("/connections/request", (req, res) => {
 
   const user = recommendations.find((user) => user.id === userId);
   const targetUser = recommendations.find((user) => user.id === targetUserId);
-
-  if (!user || !targetUser) {
-    return res.status(404).json({ message: "User or target user not found" });
+console.log(userId)
+console.log(targetUserId)
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
   }
-
-  
+  if (!targetUser) {
+    return res.status(404).json({ message: "target user not found" });
+  }
   const existingRequest = connectionsData.find(
     (conn) => conn.userId === userId && conn.targetUserId === targetUserId
   );
@@ -156,44 +158,6 @@ app.post("/connections/request", (req, res) => {
 
   res.json({ message: "Connection request sent successfully" });
 })
-
-app.post("/connections/accept", (req, res) => {
-  const { userId, targetUserId } = req.body;
-
-  const connection = connectionsData.find(
-    (conn) => conn.userId === targetUserId && conn.targetUserId === userId && conn.status === "pending"
-  );
-
-  if (!connection) {
-    return res.status(404).json({ message: "Connection request not found" });
-  }
-
-  
-  connection.status = "accepted";
-
-  fs.writeFileSync(
-    "./connections.json",
-    JSON.stringify(connectionsData, null, 2)
-  );
-
-  res.json({ message: "Connection request accepted successfully" });
-});
-
-app.post("/connections/reject", (req, res) => {
-  const { userId, targetUserId } = req.body;
-
-  connectionsData = connectionsData.filter(
-    (conn) => !(conn.userId === targetUserId && conn.targetUserId === userId && conn.status === "pending")
-  );
-
-  fs.writeFileSync(
-    "./connections.json",
-    JSON.stringify(connectionsData, null, 2)
-  );
-
-  res.json({ message: "Connection request rejected successfully" });
-});
-
 
 
 app.listen(port, () => {
