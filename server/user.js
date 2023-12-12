@@ -157,6 +157,19 @@ app.post("/connections/request", (req, res) => {
   res.json({ message: "Connection request sent successfully" });
 })
 
+app.post("/connections/accept", (req, res) => {
+  const { userId, targetUserId } = req.body;
+
+  // Find the connection request
+  const connection = connectionsData.find(
+    (conn) => conn.userId === targetUserId && conn.targetUserId === userId && conn.status === "pending"
+  );
+
+  if (!connection) {
+    return res.status(404).json({ message: "Connection request not found" });
+  }
+
+  });
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
