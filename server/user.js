@@ -179,6 +179,23 @@ app.post("/connections/accept", (req, res) => {
   res.json({ message: "Connection request accepted successfully" });
 });
 
+app.post("/connections/reject", (req, res) => {
+  const { userId, targetUserId } = req.body;
+
+  connectionsData = connectionsData.filter(
+    (conn) => !(conn.userId === targetUserId && conn.targetUserId === userId && conn.status === "pending")
+  );
+
+  fs.writeFileSync(
+    "./connections.json",
+    JSON.stringify(connectionsData, null, 2)
+  );
+
+  res.json({ message: "Connection request rejected successfully" });
+});
+
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
