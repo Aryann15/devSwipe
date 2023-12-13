@@ -33,7 +33,15 @@ const Project = () => {
       <div className="leaderboard">
       <h2>Leaderboard</h2>
       <ul>
-              </ul>
+        {projects
+          .sort((a, b) => b.likes - a.likes) // Sort projects by likes in descending order
+          .map((project) => (
+            <li key={project.id}>
+              <span className="project-title">{project.title +" =  "}</span>
+              <span className="like-count">{project.likes} Likes</span>
+            </li>
+          ))}
+      </ul>
     </div>
     </div>
   );
