@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 
 // const userId = 95
 
 const ConnectionsPage = () => {
-  const userId = 95
-  const [reqData ,setReqData] = useState ([])
+  const userId = 95;
+  const [reqData, setReqData] = useState([]);
   const [connections, setConnections] = useState([]);
+
+  const handleAccept = (userId) => {
+    // Logic for accepting the connection request
+    console.log(`Accepted connection request from user ID ${userId}`);
+  };
+  
+  const handleReject = (userId) => {
+    // Logic for rejecting the connection request
+    console.log(`Rejected connection request from user ID ${userId}`);
+  };
   useEffect(() => {
     fetch(`http://127.0.0.1:5001/connections/${userId}`)
       .then((response) => response.json())
-      .then((connectionsData) => {
-        console.log(connectionsData)
-        setConnections(connectionsData);
-
+      .then((connectionRequests) => {
         const userIds = connectionRequests.map((request) => request.userId);
+        setConnections(userIds);
+        console.log("User IDs:", userIds);
 
-        // Fetch user details for the requesters
         fetch("http://127.0.0.1:5001/api/userDetails", {
           method: "POST",
           headers: {
@@ -25,6 +33,7 @@ const ConnectionsPage = () => {
         })
           .then((response) => response.json())
           .then((userDetails) => {
+            console.log("User Details:", userDetails);
             setReqData(userDetails);
           })
           .catch((error) => {
@@ -35,20 +44,16 @@ const ConnectionsPage = () => {
         console.error("Error fetching connections:", error);
       });
   }, [userId]);
-  
-  
+
   return (
     <div>
       <h1>Connections</h1>
       <ul>
-      {connections.map((connection) => (
-          <li key={connection.userId}>
-            {connection.status === "pending" && reqData.length > 0 && (
-              <div>
-                <p>{`Connection request from user ${connection.userId} (${reqData.find(user => user.id === connection.userId)?.name})`}</p>
-
-              </div>
-            )}
+        {reqData.map((user) => (
+          <li key={user.id}>
+            <p>{`User ID: ${user.id}, Name: ${user.name}, Age: ${user.age}`}</p>
+            <button onClick={() => handleAccept(user.id)}>Accept</button>
+            <button onClick={() => handleReject(user.id)}>Reject</button>
           </li>
         ))}
       </ul>
