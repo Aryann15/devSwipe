@@ -244,6 +244,8 @@ app.post("/projects/like", (req, res) => {
 
   projectToUpdate.likes += 1;
 
+  
+  fs.writeFileSync(projectsPath, JSON.stringify(projectsData, null, 2));
 
   res.json({ message: "Project like updated successfully", project: projectToUpdate });
 });
