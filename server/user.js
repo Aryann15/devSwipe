@@ -8,7 +8,6 @@ const port = 5001;
 
 const userDetailsPath = "recommendation.json";
 let userDetailsData = {};
-
 try {
   const data = fs.readFileSync(userDetailsPath, "utf8");
   userDetailsData = JSON.parse(data);
@@ -180,6 +179,62 @@ app.get("/connections/:targetUserId", (req, res) => {
     console.log(connectionRequests)
   res.json(connectionRequests);
 });
+
+
+app.post('/connections/update', (req, res) => {
+
+  const updatedConnections = req.body;
+  console.log(updatedConnections)
+  // Validate input  
+  if(!Array.isArray(updatedConnections)) {
+    return res.status(400).send('Invalid input');
+  }
+
+  // Map over updated connections array
+  updatedConnections.forEach(updatedConn => {
+    
+    // Find match in existing connections  
+    const existing = connectionsData.find(c => c.userId === updatedConn.userId);
+    
+    // If match, update the status 
+    if(existing) {
+      existing.status = updatedConn.status; 
+    }
+
+  });
+  
+  // Write updated array back to file
+  fs.writeFile('./data/connections.json', JSON.stringify(updatedConnections), (err) => {
+     if(err) {
+       return res.status(500).send('Error updating data');
+     }
+
+     res.send('Data successfully updated');
+
+  });
+
+});
+
+
+//Projects
+
+let projectsData = [];
+const projectsPath = "project.json";
+try {
+  const data = fs.readFileSync(projectsPath, "utf8");
+  projectsData = JSON.parse(data);
+} catch (error) {
+  console.error("Error reading projects data:", error);
+}
+
+
+app.use(bodyParser.json());
+
+
+app.get("/projects", (req, res) => {
+  res.json(projectsData);
+});
+
 
 
 app.listen(port, () => {
