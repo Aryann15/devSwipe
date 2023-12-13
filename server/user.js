@@ -17,10 +17,9 @@ try {
 app.use(cors());
 app.use(bodyParser.json());
 
-
 app.post("/api/userDetails", (req, res) => {
   const { userIds } = req.body;
-  console.log(userIds)
+  console.log(userIds);
   if (!userIds || !Array.isArray(userIds)) {
     return res.status(400).json({ error: "Invalid user IDs" });
   }
@@ -33,12 +32,12 @@ app.post("/api/userDetails", (req, res) => {
           age: user.age,
           profession: user.profession,
           techFields: user.techFields,
-          experience:user.experience,
+          experience: user.experience,
           profilePicture: user.profilePicture,
           aboutme: user.aboutme,
-          languages : user.programmingLanguages,
+          languages: user.programmingLanguages,
           skills: user.skills,
-          goals: user.goals
+          goals: user.goals,
         }
       : null;
   });
@@ -121,21 +120,22 @@ app.post("/onboarding", (req, res) => {
   });
 });
 
-
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true }));
 
 // Connnection requests
 
-let connectionsData = JSON.parse(fs.readFileSync("./connections.json", "utf-8"));
+let connectionsData = JSON.parse(
+  fs.readFileSync("./connections.json", "utf-8")
+);
 
 app.post("/connections/request", (req, res) => {
   const { userId, targetUserId } = req.body;
 
   const user = recommendations.find((user) => user.id === userId);
   const targetUser = recommendations.find((user) => user.id === targetUserId);
-console.log(userId)
-console.log(targetUserId)
+  console.log(userId);
+  console.log(targetUserId);
   if (!user) {
     return res.status(404).json({ message: "User not found" });
   }
@@ -149,7 +149,8 @@ console.log(targetUserId)
 
   if (existingRequest) {
     return res.status(400).json({ message: "Connection request already sent" });
-  }  connectionsData.push({ userId, targetUserId, status: "pending" });
+  }
+  connectionsData.push({ userId, targetUserId, status: "pending" });
 
   fs.writeFileSync(
     "./connections.json",
@@ -157,10 +158,7 @@ console.log(targetUserId)
   );
 
   res.json({ message: "Connection request sent successfully" });
-})
-
-
-
+});
 
 app.get("/connections/:targetUserId", (req, res) => {
   const targetUserId = parseInt(req.params.targetUserId);
@@ -171,50 +169,53 @@ app.get("/connections/:targetUserId", (req, res) => {
   }
 
   const connectionRequests = connectionsData
-    .filter((connection) => connection.targetUserId === targetUserId && connection.status === "pending")
+    .filter(
+      (connection) =>
+        connection.targetUserId === targetUserId &&
+        connection.status === "pending"
+    )
     .map((connection) => ({
       userId: connection.userId,
-      status: connection.status
+      status: connection.status,
     }));
-    console.log(connectionRequests)
+  console.log(connectionRequests);
   res.json(connectionRequests);
 });
 
-
-app.post('/connections/update', (req, res) => {
-
+app.post("/connections/update", (req, res) => {
   const updatedConnections = req.body;
-  console.log(updatedConnections)
-  // Validate input  
-  if(!Array.isArray(updatedConnections)) {
-    return res.status(400).send('Invalid input');
+  console.log(updatedConnections);
+  // Validate input
+  if (!Array.isArray(updatedConnections)) {
+    return res.status(400).send("Invalid input");
   }
 
   // Map over updated connections array
-  updatedConnections.forEach(updatedConn => {
-    
-    // Find match in existing connections  
-    const existing = connectionsData.find(c => c.userId === updatedConn.userId);
-    
-    // If match, update the status 
-    if(existing) {
-      existing.status = updatedConn.status; 
+  updatedConnections.forEach((updatedConn) => {
+    // Find match in existing connections
+    const existing = connectionsData.find(
+      (c) => c.userId === updatedConn.userId
+    );
+
+    // If match, update the status
+    if (existing) {
+      existing.status = updatedConn.status;
     }
-
   });
-  
+
   // Write updated array back to file
-  fs.writeFile('./data/connections.json', JSON.stringify(updatedConnections), (err) => {
-     if(err) {
-       return res.status(500).send('Error updating data');
-     }
+  fs.writeFile(
+    "./data/connections.json",
+    JSON.stringify(updatedConnections),
+    (err) => {
+      if (err) {
+        return res.status(500).send("Error updating data");
+      }
 
-     res.send('Data successfully updated');
-
-  });
-
+      res.send("Data successfully updated");
+    }
+  );
 });
-
 
 //Projects
 
@@ -230,26 +231,53 @@ try {
 app.use(bodyParser.json());
 
 app.get("/projects", (req, res) => {
-  res.json(projectsData);
-});
+  res.json(projectsData.map(project => ({
+    id: project.id,
+    title: project.title,
+    description: project.description,
+    likes: {
+      count: project.likes.count,
+      userIds: project.likes.userIds
+    }})))})
 
 app.post("/projects/like", (req, res) => {
-  const { projectId } = req.body;
-
-  const projectToUpdate = projectsData.find((project) => project.id === projectId);
-
-  if (!projectToUpdate) {
-    return res.status(404).json({ message: "Project not found" });
+  const { userId, projectId } = req.query;
+  console.log(userId) 
+  console.log(projectId)
+  
+  if (!userId || !projectId) {
+    return res.status(400).json({ error: "Invalid request parameters" });
+  }
+  const project = projectsData.find(p => p.id === parseInt(projectId));
+  
+  if(!project) {
+    return res.status(404).send('Project not found');
   }
 
-  projectToUpdate.likes += 1;
+  if (project.likes && project.likes.userIds.includes(parseInt(userId))) {
+    return res.status(400).json({ error: "Already liked" });
+  }
 
-  
-  fs.writeFileSync(projectsPath, JSON.stringify(projectsData, null, 2));
+  if (!project.likes) {
+    project.likes = { count: 0, userIds: [] };
+  }
 
-  res.json({ message: "Project like updated successfully", project: projectToUpdate });
-});
 
+  project.likes.userIds.push(parseInt(userId));
+  project.likes.count += 1;
+
+  saveProjects(projectsData);
+
+  res.json({
+    message: 'Like added!',
+    likesCount: project.likes.count,
+  });
+})
+
+function saveProjects(projects) {
+
+  fs.writeFileSync(projectsPath, JSON.stringify(projects))
+}
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
