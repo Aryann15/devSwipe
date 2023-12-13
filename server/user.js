@@ -227,14 +227,26 @@ try {
   console.error("Error reading projects data:", error);
 }
 
-
 app.use(bodyParser.json());
-
 
 app.get("/projects", (req, res) => {
   res.json(projectsData);
 });
 
+app.post("/projects/like", (req, res) => {
+  const { projectId } = req.body;
+
+  const projectToUpdate = projectsData.find((project) => project.id === projectId);
+
+  if (!projectToUpdate) {
+    return res.status(404).json({ message: "Project not found" });
+  }
+
+  projectToUpdate.likes += 1;
+
+
+  res.json({ message: "Project like updated successfully", project: projectToUpdate });
+});
 
 
 app.listen(port, () => {
