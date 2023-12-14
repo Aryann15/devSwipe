@@ -1,18 +1,20 @@
 import React from "react";
-import hero from "./hero.mp4";
+import hero from "./hro.png";
 import "./Hero.css";
+
 const Hero = () => {
   return (
-    <div className="video-background">
-      <video autoPlay muted loop className="video">
-        <source src={hero} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
+    <div className="hero-container">
+      <img src={hero} alt="" className="hero-image" />
       <div className="content">
-        <h1>Welcome to My Website</h1>
-        <p>Enjoy the video background effect!</p>
-        <button style={{ backgroundColor: "white" }}>Click me</button>
+        <h1 className="title">DevConnect</h1>
+        <h3>
+          Elevate your networking experience in the tech world - Swipe, Connect,
+          and Chat with like-minded developers effortlessly🚀
+        </h3>
+        <br /><br />
+        <button className="login">Login</button>
+        <button className="signup">Signup</button>
       </div>
     </div>
   );
